@@ -1,0 +1,52 @@
+<%= form_with(model: servant, local: true) do |form| %>
+  <% if servant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(servant.errors.count, "error") %> prohibited this servant from being saved:</h2>
+
+      <ul>
+      <% servant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :servant_id %>
+    <%= form.number_field :servant_id, id: :servant_servant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rare %>
+    <%= form.number_field :rare, id: :servant_rare %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :servant_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class_id %>
+    <%= form.number_field :class_id, id: :servant_class_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attri_id %>
+    <%= form.number_field :attri_id, id: :servant_attri_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :command %>
+    <%= form.text_field :command, id: :servant_command %>
+  </div>
+
+  <div class="field">
+    <%= form.label :np_get %>
+    <%= form.number_field :np_get, id: :servant_np_get %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servant:</strong>
+  <%= @servant.servant_id %>
+</p>
+
+<p>
+  <strong>Rare:</strong>
+  <%= @servant.rare %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @servant.name %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @servant.class_id %>
+</p>
+
+<p>
+  <strong>Attri:</strong>
+  <%= @servant.attri_id %>
+</p>
+
+<p>
+  <strong>Command:</strong>
+  <%= @servant.command %>
+</p>
+
+<p>
+  <strong>Np get:</strong>
+  <%= @servant.np_get %>
+</p>
+
+<%= link_to 'Edit', edit_servant_path(@servant) %> |
+<%= link_to 'Back', servants_path %>

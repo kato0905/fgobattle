@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servant:</strong>
+  <%= @np.servant_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @np.name %>
+</p>
+
+<p>
+  <strong>Explain:</strong>
+  <%= @np.explain %>
+</p>
+
+<p>
+  <strong>D pattern:</strong>
+  <%= @np.d_pattern %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @np.detail %>
+</p>
+
+<%= link_to 'Edit', edit_np_path(@np) %> |
+<%= link_to 'Back', nps_path %>
