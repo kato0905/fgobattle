@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Servant</th>
+      <th>Name</th>
+      <th>Explain</th>
+      <th>D pattern</th>
+      <th>Detail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nps.each do |np| %>
+      <tr>
+        <td><%= np.servant_id %></td>
+        <td><%= np.name %></td>
+        <td><%= np.explain %></td>
+        <td><%= np.d_pattern %></td>
+        <td><%= np.detail %></td>
+        <td><%= link_to 'Show', np %></td>
+        <td><%= link_to 'Edit', edit_np_path(np) %></td>
+        <td><%= link_to 'Destroy', np, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Np', new_np_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: attri, local: true) do |form| %>
+  <% if attri.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attri.errors.count, "error") %> prohibited this attri from being saved:</h2>
+
+      <ul>
+      <% attri.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :attri_id %>
+    <%= form.number_field :attri_id, id: :attri_attri_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :attri_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

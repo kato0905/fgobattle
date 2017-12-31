@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Servants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Servant</th>
+      <th>Rare</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Attri</th>
+      <th>Command</th>
+      <th>Np get</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servants.each do |servant| %>
+      <tr>
+        <td><%= servant.servant_id %></td>
+        <td><%= servant.rare %></td>
+        <td><%= servant.name %></td>
+        <td><%= servant.class_id %></td>
+        <td><%= servant.attri_id %></td>
+        <td><%= servant.command %></td>
+        <td><%= servant.np_get %></td>
+        <td><%= link_to 'Show', servant %></td>
+        <td><%= link_to 'Edit', edit_servant_path(servant) %></td>
+        <td><%= link_to 'Destroy', servant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Servant', new_servant_path %>

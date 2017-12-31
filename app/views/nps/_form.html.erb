@@ -1,0 +1,42 @@
+<%= form_with(model: np, local: true) do |form| %>
+  <% if np.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(np.errors.count, "error") %> prohibited this np from being saved:</h2>
+
+      <ul>
+      <% np.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :servant_id %>
+    <%= form.number_field :servant_id, id: :np_servant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :np_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :explain %>
+    <%= form.text_field :explain, id: :np_explain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :d_pattern %>
+    <%= form.number_field :d_pattern, id: :np_d_pattern %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_field :detail, id: :np_detail %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

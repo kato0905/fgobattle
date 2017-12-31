@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servant:</strong>
+  <%= @skill.servant_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @skill.name %>
+</p>
+
+<p>
+  <strong>Explain:</strong>
+  <%= @skill.explain %>
+</p>
+
+<p>
+  <strong>D pattern:</strong>
+  <%= @skill.d_pattern %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @skill.detail %>
+</p>
+
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>
