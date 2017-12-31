@@ -1,0 +1,27 @@
+<%= form_with(model: sclass, local: true) do |form| %>
+  <% if sclass.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sclass.errors.count, "error") %> prohibited this sclass from being saved:</h2>
+
+      <ul>
+      <% sclass.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :class_id %>
+    <%= form.number_field :class_id, id: :sclass_class_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :sclass_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
