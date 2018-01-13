@@ -10,11 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231014527) do
+ActiveRecord::Schema.define(version: 20180113100545) do
 
   create_table "attris", force: :cascade do |t|
     t.integer "attri_id"
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classskills", force: :cascade do |t|
+    t.integer "servant_id"
+    t.string "name"
+    t.string "explain"
+    t.integer "icon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "npgets", force: :cascade do |t|
+    t.integer "servant_id"
+    t.decimal "a1", precision: 6, scale: 2
+    t.decimal "a2", precision: 6, scale: 2
+    t.decimal "a2p", precision: 6, scale: 2
+    t.decimal "a3", precision: 6, scale: 2
+    t.decimal "a3p", precision: 6, scale: 2
+    t.decimal "q1", precision: 6, scale: 2
+    t.decimal "q2", precision: 6, scale: 2
+    t.decimal "q2p", precision: 6, scale: 2
+    t.decimal "q3", precision: 6, scale: 2
+    t.decimal "q3p", precision: 6, scale: 2
+    t.decimal "ex", precision: 6, scale: 2
+    t.decimal "exp", precision: 6, scale: 2
+    t.decimal "bp", precision: 6, scale: 2
+    t.decimal "np", precision: 6, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +58,7 @@ ActiveRecord::Schema.define(version: 20171231014527) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "s_classes", force: :cascade do |t|
+  create_table "sclasses", force: :cascade do |t|
     t.integer "class_id"
     t.string "name"
     t.datetime "created_at", null: false

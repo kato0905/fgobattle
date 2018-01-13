@@ -1,0 +1,102 @@
+<span id="battle">
+<span class="turn0" class="now"></span>
+<span class="turn1"></span>
+<span class="turn2"></span>
+<span class="next">next</span>
+<style type="text/css">
+<!--
+body {
+padding-top:80px;
+}
+-->
+</style>
+<span class="reset">reset</span>
+<% s = params[:select].split(",")%>
+<% tugi = 4 %>
+<% no1 = Servant.find_by(servant_id: s[0].to_i) %>
+<% no2 = Servant.find_by(servant_id: s[1].to_i) %>
+<% no3 = Servant.find_by(servant_id: s[2].to_i) %>
+<% no4 = Servant.find_by(servant_id: s[3].to_i) %>
+<% no5 = Servant.find_by(servant_id: s[4].to_i) %>
+<% no6 = Servant.find_by(servant_id: s[5].to_i) %>
+<br>
+<% for num in 0..4 do %>
+  <% if no1.command[num%5] == "Q"%>
+    <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no1.command[num%5] == "A"%>
+    <%= image_tag "command/arts.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no1.command[num%5] == "B"%>
+    <%= image_tag "command/buster.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+<% end %>
+<br>
+<%= image_tag "servants/#{no1.servant_id}.png", :size=> '80x80' %>
+<%= image_tag "class/class_#{no1.class_id}.png", :size=> '40x40' %>
+<% cskill = Classskill.where(servant_id: no1.servant_id) %>
+<div class="box">
+<% cskill.each do |classskill| %>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40' %></p>
+  <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
+<% end %>
+</div>
+<% npget = Npget.find_by(servant_id: no1.servant_id) %>
+<table>
+<tr>
+<td rowspan="3" bgcolor="#3498db"><%= npget.a1 %></td>
+<td bgcolor="#3498db"><%= npget.a2p %></td><td bgcolor="#3498db"><%= npget.a3p %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71"><%= npget.q2p %></td><td bgcolor="#2ecc71"><%= npget.q3p %></td>
+</tr>
+<tr>
+<td bgcolor="#e74c3c"><%= npget.bp %></td><td bgcolor="#e74c3c"><%= npget.bp %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71"><%= npget.q1 %></td><td bgcolor="#2ecc71"><%= npget.q2 %></td><td bgcolor="#2ecc71"><%= npget.q3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1">b or q</td><td bgcolor="#3498db"><%= npget.a2 %></td><td bgcolor="#3498db"><%= npget.a3 %></td>
+</tr>
+</table>
+<br>
+<%= no1.name %><span class="dead">dead</span>
+
+<br>
+<% for num in 5..9 do %>
+  <% if no2.command[num%5] == "Q"%>
+    <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no2.command[num%5] == "A"%>
+    <%= image_tag "command/arts.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no2.command[num%5] == "B"%>
+    <%= image_tag "command/buster.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+<% end %>
+<%= image_tag "class/class_#{no2.class_id}.png", :size=> '40x40' %>
+<%= no2.name %>
+<br>
+<% for num in 10..14 do %>
+  <% if no3.command[num%5] == "Q"%>
+    <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no3.command[num%5] == "A"%>
+    <%= image_tag "command/arts.jpg", :size=> '80x80',:class => 'command',:id => num %>
+  <% end %>
+  <% if no3.command[num%5] == "B"%>
+    <%= image_tag "command/buster.jpg", :size=> '80x80',:class => 'command',:id => num %> 
+  <% end %>
+<% end %>
+<%= image_tag "class/class_#{no3.class_id}.png", :size=> '40x40' %>
+<%= no3.name %>
+<br>
+<br>
+next
+<%= image_tag "servants/#{no4.servant_id}.png", :size=> '40x40' %>
+<%= image_tag "servants/#{no5.servant_id}.png", :size=> '40x40' %>
+<%= image_tag "servants/#{no6.servant_id}.png", :size=> '40x40' %>
+
+
+</span>

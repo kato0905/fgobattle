@@ -1,4 +1,4 @@
 class Servant < ApplicationRecord
-  belongs_to :s_classes
-  belongs_to :attris
+  belongs_to :sclasses, optional: true
+  belongs_to :attris, optional: true
 end
