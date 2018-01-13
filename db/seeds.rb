@@ -24,6 +24,20 @@ require "csv"
     Servant.create!(servant_id: row[0], rare: row[1], name: row[2], class_id: row[3], attri_id: row[4], command: row[5], np_get: row[6])
   end
 end
+require "csv"
+  if File.exist?('db/class_skill.csv') == true
+    CSV.foreach('db/class_skill.csv').each do |row|
+    Classskill.create!(:servant_id => row[0], :name => row[1], :explain => row[2], :icon_id => row[3])
+  end
+end
+require "csv"
+  if File.exist?('db/np_get.csv') == true
+    CSV.foreach('db/np_get.csv').each do |row|
+    Npget.create!(:servant_id => row[0], :a1 => row[1], :a2 => row[2], :a2p => row[3], :a3 => row[4], :a3p => row[5], :q1 => row[6], :q2 => row[7], :q2p => row[8], :q3 => row[9], :q3p => row[10], :ex => row[11], :exp => row[12], :bp => row[13], :np => row[14])
+  end
+end
+
+
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).

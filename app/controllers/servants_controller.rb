@@ -6,6 +6,9 @@ class ServantsController < ApplicationController
   def index
     @servants = Servant.all
   end
+  
+  def battle
+  end
 
   # GET /servants/1
   # GET /servants/1.json

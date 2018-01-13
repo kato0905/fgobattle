@@ -1,12 +1,151 @@
 .image:hover {
+  opacity:0.7;
+}
+.red {
+  color:red;
+}
+.blue {
+  color:blue;
+}
+.f0 {
+  border:medium solid black;
+}
+.f1 {
+  border:medium solid brown;
+}
+.f2 {
+  border:medium solid brown;
+}
+.f3 {
+  border:medium solid silver;
+}
+.f4 {
+  border:medium solid goldenrod;
+}
+.f5 {
+  border:medium solid yellow;
+}
+.selected:hover {
   opacity: 0.7;
 }
-input checkbox{
-  display: none;
+.selected {
+width:100px;
+height:100px;
+}
+#header {
+height:160px;
+width:100%;
+background-color:skyblue;
+position:fixed;
+top:0px;
+left:0px;
+margin-top:0;
+margin-left:0;
+}
+#topheader {
+height:160px;
+width:475px;
+background-color:moccasin;
+position:fixed;
+top:0px;
+left:0px;
+margin-top:0;
+margin-left:0;
+}
+#topheader .starting {
+display:inline;
+position:absolute;
+left:50px;
+}
+#header .sub {
+display:inline;
+position:absolute;
+left:500px;
+}
+#header form {
+position:absolute;
+right:80px;
+top:90px;
+font-size:20px;
+color:red;
 }
 
-
-
+p.text {
+  display:inline;
+}
+.text:hover + .fukidashi {
+  display:block;
+}
+div.box {
+  position:relative;
+  display:inline;
+}
+.fukidashi {
+  display: none;
+  width: 500px;
+  position: absolute;
+  top: -100px;
+  left: -20px;
+  padding: 16px;
+  border-radius: 5px;
+}
+.fukidashi:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border: solid transparent;
+  content: " ";
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  border: solid 1px;
+  padding: 0.5em;
+  width: 100px;
+}
+.command:hover {
+  opacity: 0.7;
+}
+.checked {
+  width: 50px;
+  height: 50px;
+}
+span.next {
+  position:fixed;
+  top:50px;
+  right:150px;
+}
+span.reset {
+  position:fixed;
+  top:50px;
+  right:50px;
+}
+span.turn0 {
+  position:fixed;
+  top:10px;
+  left:30px;
+  width:290px;
+  height:80px;
+  background-color:#ff9900;
+}
+span.turn1 {
+  position:fixed;
+  top:10px;
+  left:330px;
+  width:290px;
+  height:80px;
+}
+span.turn2 {
+  position:fixed;
+  top:10px;
+  left:630px;
+  width:290px;
+  height:80px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

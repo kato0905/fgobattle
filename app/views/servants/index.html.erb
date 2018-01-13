@@ -1,128 +1,146 @@
 <p id="notice"><%= notice %></p>
 
+<style type="text/css">
+<!--
+body {
+padding-top:150px;
+}
+-->
+</style>
+
+<span id="top">
 <!-- サーバント番号の最高値を入れる -->
 <% num=197 %>
 <!-- 霊器一覧に載っていないサーバントの番号 -->
 <% rm1=83 %><% rm2=149 %><% rm3=151 %><% rm4=152 %><% rm5=168 %>
+<%= params[:selected] %>
+<% select = Array.new %>
 
-<h1>サーバント検索</h1>
-<form action="#" method="post">
+<% if params[:selected] != ""%>
+  <% p = params[:selected] %>
+  <% select << p.to_i %>
+<% end %>
+<p>Hello World!</p>
+<%= select %>
+<span class="color">
+fdas
+</span>
+
+<!-- ヘッダー -->
+<span id="header">
+  <div class="sub"><span class="blue">Sub</span> Member</div>
+  <form action="../battle/home" name="to_battle" method="get" onsubmit="get_variable()">
+    <input id="abc" type="hidden" name="select" value="" >
+    <input type="submit" value="クエスト開始" >
+  </form>
+</span>
+<span id="topheader">
+    <div class="starting"><span class="red">Starting</span> Member</div>
+</span>
+
+<h1>サーバント選択</h1>
 <h2>セイバー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 1 %>
     <span class="image">
-    <label><input type="checkbox" value='<%= servant.servant_id %>'>
-    <%= image_tag("#{servant.servant_id}.png", :size => '80x80') %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f"+"#{servant.rare}" %>
+    </span>
   <% end %>
 <% end %>
 <h2>アーチャー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 2 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}" %>
+    </span>
   <% end %>
 <% end %>
 <h2>ランサー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 3 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>ライダー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 4 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>アサシン</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 5 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>キャスター</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 6 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>バーサーカー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 7 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>シールダー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 8 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>ルーラー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 9 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>アヴェンジャー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 10 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>ムーンキャンサー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 11 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>アルターエゴ</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 12 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
 <h2>フォーリナー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 13 %>
     <span class="image">
-    <label><input type="checkbox" value="<%= servant.servant_id %>">
-    <%= image_tag "#{servant.servant_id}.png", :size => '80x80' %>
-    </label></span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    </span>
   <% end %>
 <% end %>
-<input type="submit" value="送信">
-</form>
+</span>

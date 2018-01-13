@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  servant_id: 1
+  a1: 1
+  a2: 1
+  a2p: 1
+  a3: 1
+  a3p: 1
+  q1: 1
+  q2: 1
+  q2p: 1
+  q3: 1
+  q3p: 1
+  ex: 1
+  exp: 1
+  bp: 1
+  np: 1
+
+two:
+  servant_id: 1
+  a1: 1
+  a2: 1
+  a2p: 1
+  a3: 1
+  a3p: 1
+  q1: 1
+  q2: 1
+  q2p: 1
+  q3: 1
+  q3p: 1
+  ex: 1
+  exp: 1
+  bp: 1
+  np: 1
