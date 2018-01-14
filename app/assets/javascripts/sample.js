@@ -100,4 +100,16 @@ $(document).ready(function(){
     check[1] = [];
     check[2] = [];
   });
+  $('span#battle').on('click','#cal td',function(){
+    np_sum = 0;
+    $(this).toggleClass("cal");
+    $('td.cal').each(function() {
+      ele = $(this).attr("id");
+      np_sum = np_sum + parseFloat(ele);
+    });
+    target = document.getElementById("np_sum");
+    target.innerHTML = np_sum.toFixed(2);
+
+
+  });
 });

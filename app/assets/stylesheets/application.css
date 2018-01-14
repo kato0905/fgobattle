@@ -86,10 +86,37 @@ div.box {
   position: absolute;
   top: -100px;
   left: -20px;
-  padding: 16px;
+  padding: 1px;
+  border:1px solid blue;
+  background-color:white;
   border-radius: 5px;
+
 }
 .fukidashi:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border: solid transparent;
+  content: " ";
+}
+.text2:hover + .fukidashi2 {
+  display:block;
+}
+.fukidashi2 {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 60px;
+  padding: 16px;
+  border:solid 1px;
+  border-radius: 5px;
+  background-color:white;
+  z-index:1;
+}
+.fukidashi2:after {
   position: absolute;
   width: 0;
   height: 0;
@@ -118,11 +145,19 @@ span.next {
   position:fixed;
   top:50px;
   right:150px;
+  cursor: pointer;
+  border:1px solid black;
+  border-radius:5px;
+  padding:5px 15px;
 }
 span.reset {
   position:fixed;
   top:50px;
   right:50px;
+  cursor: pointer;
+  border:1px solid black;
+  border-radius:5px;
+  padding:5px 15px;
 }
 span.turn0 {
   position:fixed;
@@ -131,6 +166,7 @@ span.turn0 {
   width:290px;
   height:80px;
   background-color:#ff9900;
+  border-radius:5px;
 }
 span.turn1 {
   position:fixed;
@@ -138,6 +174,7 @@ span.turn1 {
   left:330px;
   width:290px;
   height:80px;
+  border-radius:5px;
 }
 span.turn2 {
   position:fixed;
@@ -145,8 +182,34 @@ span.turn2 {
   left:630px;
   width:290px;
   height:80px;
+  border-radius:5px;
 }
-
+td:hover {
+  opacity:0.7
+}
+td {
+  cursor: pointer;
+}
+td.cal {
+  color: white;
+}
+span #np_sum {
+  color: #3968db;
+}
+ul.foo {
+  width:1200px;
+  border:1px solid red;
+  padding:0;
+  margin:0;
+  letter-spacing:-0.4em;
+}
+ul.foo li {
+  display:inline-block;
+  border:1px solid black;
+  width:425px;
+  border-radius: 5px;
+  letter-spacing:normal;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
