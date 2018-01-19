@@ -20,11 +20,6 @@ padding-top:150px;
   <% p = params[:selected] %>
   <% select << p.to_i %>
 <% end %>
-<p>Hello World!</p>
-<%= select %>
-<span class="color">
-fdas
-</span>
 
 <!-- ヘッダー -->
 <span id="header">
@@ -38,13 +33,14 @@ fdas
     <div class="starting"><span class="red">Starting</span> Member</div>
 </span>
 
-<h1>サーバント選択</h1>
+<h1>サーヴァント選択</h1>
 <h2>セイバー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 1 %>
     <span class="image">
-    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f"+"#{servant.rare}" %>
-    </span>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :width => "80px",:height => "80px", :class => "f"+"#{servant.rare}" %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :width => '80px',:height => "80px", :class => "f"+"#{servant.rare} support"%>
+  </span>
   <% end %>
 <% end %>
 <h2>アーチャー</h2>
@@ -52,6 +48,7 @@ fdas
   <% if servant.class_id == 2 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}" %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -60,6 +57,7 @@ fdas
   <% if servant.class_id == 3 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -68,6 +66,7 @@ fdas
   <% if servant.class_id == 4 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -76,6 +75,7 @@ fdas
   <% if servant.class_id == 5 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -84,6 +84,7 @@ fdas
   <% if servant.class_id == 6 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -92,6 +93,7 @@ fdas
   <% if servant.class_id == 7 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -100,6 +102,7 @@ fdas
   <% if servant.class_id == 8 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -108,6 +111,7 @@ fdas
   <% if servant.class_id == 9 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -116,6 +120,7 @@ fdas
   <% if servant.class_id == 10 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -124,6 +129,7 @@ fdas
   <% if servant.class_id == 11 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -132,6 +138,7 @@ fdas
   <% if servant.class_id == 12 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>
@@ -140,6 +147,7 @@ fdas
   <% if servant.class_id == 13 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
+    <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
     </span>
   <% end %>
 <% end %>

@@ -19,7 +19,12 @@ padding-top:80px;
 <% no4 = Servant.find_by(servant_id: s[3].to_i) %>
 <% no5 = Servant.find_by(servant_id: s[4].to_i) %>
 <% no6 = Servant.find_by(servant_id: s[5].to_i) %>
+<% np = Np.find_by(servant_id: no1.servant_id)%>
 <br>
+
+<ul class="foo">
+<!--  servant No1  -->
+<li>
 <% for num in 0..4 do %>
   <% if no1.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -32,38 +37,62 @@ padding-top:80px;
   <% end %>
 <% end %>
 <br>
-<%= image_tag "servants/#{no1.servant_id}.png", :size=> '80x80' %>
+<div class="box">
+<%= image_tag "servants/#{no1.servant_id}.png", :size=> '80x80', :class => "text2" %>
+<p class="fukidashi2">
+<%= np.name %>   <%=np.rank%><br>
+[宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
+[OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
+<br><%=np.explain3%> <%=np.data3%>
+</p>
+</div>
 <%= image_tag "class/class_#{no1.class_id}.png", :size=> '40x40' %>
 <% cskill = Classskill.where(servant_id: no1.servant_id) %>
 <div class="box">
 <% cskill.each do |classskill| %>
-  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40' %></p>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
   <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
 <% npget = Npget.find_by(servant_id: no1.servant_id) %>
-<table>
+<table id="cal">
 <tr>
-<td rowspan="3" bgcolor="#3498db"><%= npget.a1 %></td>
-<td bgcolor="#3498db"><%= npget.a2p %></td><td bgcolor="#3498db"><%= npget.a3p %></td>
+<td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
+<td bgcolor="#3498db" id="<%=npget.a2p%>"><%= npget.a2p %></td><td bgcolor="#3498db" id="<%=npget.a3p%>"><%= npget.a3p %></td>
 </tr>
 <tr>
-<td bgcolor="#2ecc71"><%= npget.q2p %></td><td bgcolor="#2ecc71"><%= npget.q3p %></td>
+<td bgcolor="#2ecc71" id="<%=npget.q2p%>"><%= npget.q2p %></td><td bgcolor="#2ecc71" id="<%=npget.q3p%>"><%= npget.q3p %></td>
 </tr>
 <tr>
-<td bgcolor="#e74c3c"><%= npget.bp %></td><td bgcolor="#e74c3c"><%= npget.bp %></td>
+<td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td><td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td>
 </tr>
 <tr>
-<td bgcolor="#2ecc71"><%= npget.q1 %></td><td bgcolor="#2ecc71"><%= npget.q2 %></td><td bgcolor="#2ecc71"><%= npget.q3 %></td>
+<td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
 </tr>
 <tr>
-<td bgcolor="#ecf0f1">b or q</td><td bgcolor="#3498db"><%= npget.a2 %></td><td bgcolor="#3498db"><%= npget.a3 %></td>
+<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 </table>
+合計獲得NP : <span id="np_sum"></span>
+<br><br>
+<% sskill = Skill.where(servant_id: no1.servant_id) %>
+<% sskill.each do |servantskill| %>
+  <div class="box">
+  <p class="text">
+  <%= servantskill.name %></p>
+  <p class="explainskill">
+  <%=servantskill.explain%><br><%=servantskill.d1%> , <%=servantskill.d2%> , <%=servantskill.d3%> , <%=servantskill.d4%> , <%=servantskill.d5%><br><%=servantskill.d6%> , <%=servantskill.d7%> , <%=servantskill.d8%> , <%=servantskill.d9%> , <%=servantskill.d10%></p>
+  </div>
 <br>
-<%= no1.name %><span class="dead">dead</span>
-
-<br>
+<% end %><br>
+<%= no1.name %>
+<form action="../battle/home" name="dead" method="get" style="display:inline">
+  <input type="hidden" name="select" value="<%=no4.servant_id%>,<%=no2.servant_id%>,<%=no3.servant_id%>,<%=no5.servant_id%>,<%=no6.servant_id%>">
+  <input type="submit" value="Dead">
+</form>
+</li><!--  servent No2  -->
+<% np = Np.find_by(servant_id: no2.servant_id)%>
+<li>
 <% for num in 5..9 do %>
   <% if no2.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -75,9 +104,63 @@ padding-top:80px;
     <%= image_tag "command/buster.jpg", :size=> '80x80',:class => 'command',:id => num %>
   <% end %>
 <% end %>
-<%= image_tag "class/class_#{no2.class_id}.png", :size=> '40x40' %>
-<%= no2.name %>
 <br>
+<div class="box">
+<%= image_tag "servants/#{no2.servant_id}.png", :size=> '80x80', :class => "text2" %>
+<p class="fukidashi2">
+<%= np.name %>   <%=np.rank%><br>
+[宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
+[OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
+<br><%=np.explain3%> <%=np.data3%>
+</p>
+</div>
+<%= image_tag "class/class_#{no2.class_id}.png", :size=> '40x40' %>
+<% cskill = Classskill.where(servant_id: no2.servant_id) %>
+<div class="box">
+<% cskill.each do |classskill| %>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
+  <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
+<% end %>
+</div>
+<% npget = Npget.find_by(servant_id: no2.servant_id) %>
+<table id="cal2">
+<tr>
+<td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
+<td bgcolor="#3498db" id="<%=npget.a2p%>"><%= npget.a2p %></td><td bgcolor="#3498db" id="<%=npget.a3p%>"><%= npget.a3p %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71" id="<%=npget.q2p%>"><%= npget.q2p %></td><td bgcolor="#2ecc71" id="<%=npget.q3p%>"><%= npget.q3p %></td>
+</tr>
+<tr>
+<td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td><td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+</tr>
+</table>
+合計獲得NP : <span id="np_sum2"></span>
+<br><br>
+<% sskill = Skill.where(servant_id: no2.servant_id) %>
+<% sskill.each do |servantskill| %>
+  <div class="box">
+  <p class="text">
+  <%= servantskill.name %></p>
+  <p class="explainskill2">
+  <%=servantskill.explain%><br><%=servantskill.d1%> , <%=servantskill.d2%> , <%=servantskill.d3%> , <%=servantskill.d4%> , <%=servantskill.d5%><br><%=servantskill.d6%> , <%=servantskill.d7%> , <%=servantskill.d8%> , <%=servantskill.d9%> , <%=servantskill.d10%></p>
+  </div>
+<br>
+<% end %><br>
+<%= no2.name %>
+<form action="../battle/home" name="dead" method="get" style="display:inline">
+  <input type="hidden" name="select" value="<%=no1.servant_id%>,<%=no4.servant_id%>,<%=no3.servant_id%>,<%=no5.servant_id%>,<%=no6.servant_id%>">
+  <input type="submit" value="Dead">
+</form>
+</li><!--  servant No3  -->
+<% np = Np.find_by(servant_id: no3.servant_id)%>
+<li>
 <% for num in 10..14 do %>
   <% if no3.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -89,14 +172,85 @@ padding-top:80px;
     <%= image_tag "command/buster.jpg", :size=> '80x80',:class => 'command',:id => num %> 
   <% end %>
 <% end %>
+<br>
+<div class="box">
+<%= image_tag "servants/#{no3.servant_id}.png", :size=> '80x80', :class => "text2" %>
+<p class="fukidashi2-3">
+<%= np.name %>   <%=np.rank%><br>
+[宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
+[OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
+<br><%=np.explain3%> <%=np.data3%>
+</p>
+</div>
 <%= image_tag "class/class_#{no3.class_id}.png", :size=> '40x40' %>
+<% cskill = Classskill.where(servant_id: no3.servant_id) %>
+<div class="box">
+<% cskill.each do |classskill| %>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
+  <p class="fukidashi3"><%= classskill.name %>:<%= classskill.explain %></p>
+<% end %>
+</div>
+<% npget = Npget.find_by(servant_id: no3.servant_id) %>
+<table id="cal3">
+<tr>
+<td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
+<td bgcolor="#3498db" id="<%=npget.a2p%>"><%= npget.a2p %></td><td bgcolor="#3498db" id="<%=npget.a3p%>"><%= npget.a3p %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71" id="<%=npget.q2p%>"><%= npget.q2p %></td><td bgcolor="#2ecc71" id="<%=npget.q3p%>"><%= npget.q3p %></td>
+</tr>
+<tr>
+<td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td><td bgcolor="#e74c3c" id="<%=npget.bp%>"><%= npget.bp %></td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+</tr>
+</table>
+合計獲得NP : <span id="np_sum3"></span>
+<br><br>
+<% sskill = Skill.where(servant_id: no3.servant_id) %>
+<% sskill.each do |servantskill| %>
+  <div class="box">
+  <p class="text">
+  <%= servantskill.name %></p>
+  <p class="explainskill3">
+  <%=servantskill.explain%><br><%=servantskill.d1%> , <%=servantskill.d2%> , <%=servantskill.d3%> , <%=servantskill.d4%> , <%=servantskill.d5%><br><%=servantskill.d6%> , <%=servantskill.d7%> , <%=servantskill.d8%> , <%=servantskill.d9%> , <%=servantskill.d10%></p>
+  </div>
+<br>
+<% end %><br>
 <%= no3.name %>
+<form action="../battle/home" name="dead" method="get" style="display:inline">
+  <input type="hidden" name="select" value="<%=no1.servant_id%>,<%=no2.servant_id%>,<%=no4.servant_id%>,<%=no5.servant_id%>,<%=no6.servant_id%>">
+  <input type="submit" value="Dead">
+</form>
+</li>
+</ul>
 <br>
 <br>
 next
 <%= image_tag "servants/#{no4.servant_id}.png", :size=> '40x40' %>
 <%= image_tag "servants/#{no5.servant_id}.png", :size=> '40x40' %>
 <%= image_tag "servants/#{no6.servant_id}.png", :size=> '40x40' %>
-
-
+<form action="../servants">
+<button type="submit" class="button_to_top">サーヴァント選択画面に戻る</button>
+</form>
+<div class="orderchange">
+<form action="../battle/home" name="orderchange" method="get" onsubmit="one()">
+  <select id="select1">
+  <option value="<%=no1.servant_id%>" selected><%=no1.name%></option>
+  <option value="<%=no2.servant_id%>"><%=no2.name%></option>
+  <option value="<%=no3.servant_id%>"><%=no3.name%></option>
+  </select>
+  <select id="select2">
+  <option value="<%=no4.servant_id%>" selected><%=no4.name%></option>
+  <option value="<%=no5.servant_id%>"><%=no5.name%></option>
+  <option value="<%=no6.servant_id%>"><%=no6.name%></option>
+  </select>
+  <input type="hidden" name="select" value="" >
+  <button type="submit" class="order_change">オーダーチェンジ</button>
+</form>
+</div>
 </span>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113100545) do
+ActiveRecord::Schema.define(version: 20180113204630) do
 
   create_table "attris", force: :cascade do |t|
     t.integer "attri_id"
@@ -51,9 +51,23 @@ ActiveRecord::Schema.define(version: 20180113100545) do
   create_table "nps", force: :cascade do |t|
     t.integer "servant_id"
     t.string "name"
-    t.string "explain"
-    t.integer "d_pattern"
-    t.string "detail"
+    t.string "rank"
+    t.string "nptype"
+    t.string "command"
+    t.string "explain1"
+    t.string "data11"
+    t.string "data12"
+    t.string "data13"
+    t.string "data14"
+    t.string "data15"
+    t.string "explain2"
+    t.string "data21"
+    t.string "data22"
+    t.string "data23"
+    t.string "data24"
+    t.string "data25"
+    t.string "explain3"
+    t.string "data3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,9 +94,18 @@ ActiveRecord::Schema.define(version: 20180113100545) do
   create_table "skills", force: :cascade do |t|
     t.integer "servant_id"
     t.string "name"
+    t.integer "ct"
     t.string "explain"
-    t.integer "d_pattern"
-    t.string "detail"
+    t.string "d1"
+    t.string "d2"
+    t.string "d3"
+    t.string "d4"
+    t.string "d5"
+    t.string "d6"
+    t.string "d7"
+    t.string "d8"
+    t.string "d9"
+    t.string "d10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
