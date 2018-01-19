@@ -1,5 +1,13 @@
-.image:hover {
-  opacity:0.7;
+.image {
+  position:relative;
+}
+span.image:hover :not(.selected){
+  opacity:0.5;
+}
+.support {
+  position:absolute;
+  top:-80;
+  left:0;
 }
 .red {
   color:red;
@@ -25,12 +33,10 @@
 .f5 {
   border:medium solid yellow;
 }
-.selected:hover {
-  opacity: 0.7;
-}
 .selected {
 width:100px;
 height:100px;
+z-index:5;
 }
 #header {
 height:160px;
@@ -41,6 +47,7 @@ top:0px;
 left:0px;
 margin-top:0;
 margin-left:0;
+z-index:4;
 }
 #topheader {
 height:160px;
@@ -51,6 +58,7 @@ top:0px;
 left:0px;
 margin-top:0;
 margin-left:0;
+z-index:4;
 }
 #topheader .starting {
 display:inline;
@@ -69,9 +77,10 @@ top:90px;
 font-size:20px;
 color:red;
 }
-
+/*  Battle home.html.erb  */
 p.text {
   display:inline;
+  cursor:default;
 }
 .text:hover + .fukidashi {
   display:block;
@@ -80,51 +89,106 @@ div.box {
   position:relative;
   display:inline;
 }
-.fukidashi {
+.fukidashi {  /*  クラススキル（１,２体目）  */
   display: none;
   width: 500px;
   position: absolute;
-  top: -100px;
+  top: 0px;
   left: -20px;
+  padding: 1px;
+  border:1px solid blue;
+  background-color:white;
+  border-radius: 5px;
+}
+.text:hover + .fukidashi3 {
+  display:block;
+}
+.fukidashi3 {  /*  クラススキル（３体目）  */
+  display: none;
+  width: 500px;
+  position: absolute;
+  top: 0px;
+  left: -220px;
   padding: 1px;
   border:1px solid blue;
   background-color:white;
   border-radius: 5px;
 
 }
-.fukidashi:after {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0;
-  bottom: -19px;
-  margin-left: 10px;
-  border: solid transparent;
-  content: " ";
-}
 .text2:hover + .fukidashi2 {
   display:block;
 }
-.fukidashi2 {
+.fukidashi2 {  /*  宝具説明（１,２体目）  */
   display: none;
   position: absolute;
-  top: 200px;
-  left: 60px;
+  top: 0px;
+  left: 0px;
+  width:500px;
   padding: 16px;
   border:solid 1px;
   border-radius: 5px;
   background-color:white;
   z-index:1;
 }
-.fukidashi2:after {
+.text2:hover + .fukidashi2-3 {
+  display:block;
+}
+.fukidashi2-3 {  /*  宝具説明（３体目）  */
+  display: none;
   position: absolute;
-  width: 0;
-  height: 0;
-  left: 0;
-  bottom: -19px;
-  margin-left: 10px;
-  border: solid transparent;
-  content: " ";
+  top: 0px;
+  left: -120px;
+  width:500px;
+  padding: 16px;
+  border:solid 1px;
+  border-radius: 5px;
+  background-color:white;
+  z-index:1;
+}
+.text:hover + .explainskill {
+  display:block;
+}
+.text:hover + .explainskill2 {
+  display:block;
+}
+.text:hover + .explainskill3 {
+  display:block;
+}
+.explainskill {  /*  スキル説明（１体目）*/
+  display: none;
+  position: absolute;
+  top: -200px;
+  left: 50px;
+  width:800px;
+  padding: 16px;
+  border:solid 1px;
+  border-radius: 5px;
+  background-color:white;
+  z-index:1;
+}
+.explainskill2 {
+  display: none;
+  position: absolute;
+  top: -200px;
+  left: -250px;
+  width:800px;
+  padding: 16px;
+  border:solid 1px;
+  border-radius: 5px;
+  background-color:white;
+  z-index:1;
+}
+.explainskill3 {  /*  スキル説明（３体目）*/
+  display: none;
+  position: absolute;
+  top: -200px;
+  left: -700px;
+  width:800px;
+  padding: 16px;
+  border:solid 1px;
+  border-radius: 5px;
+  background-color:white;
+  z-index:1;
 }
 table {
   border-collapse: collapse;
@@ -193,15 +257,26 @@ td {
 td.cal {
   color: white;
 }
+td.cal2 {
+  color: white;
+}
+td.cal3 {
+  color: white;
+}
 span #np_sum {
   color: #3968db;
 }
+span #np_sum2 {
+  color: #3968db;
+}
+span #np_sum3 {
+  color:#3968db;
+}
 ul.foo {
-  width:1200px;
-  border:1px solid red;
+  width:1300px;
   padding:0;
   margin:0;
-  letter-spacing:-0.4em;
+  /*letter-spacing:-0.4em;*/
 }
 ul.foo li {
   display:inline-block;
@@ -210,6 +285,28 @@ ul.foo li {
   border-radius: 5px;
   letter-spacing:normal;
 }
+img.classskill {
+  z-index:0;
+}
+button.button_to_top {
+  border:1px solid black;
+  border-radius: 5px;
+  padding: 5px 15px;
+  position:fixed;
+  bottom:25px;
+  left:20px;
+}
+button.order_change {
+  border:1px solid black;
+  border-radius: 5px;
+  padding: 3px 7px;
+  background-color:white;
+}
+div.orderchange {
+  display:inline;
+  text-align:right;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
