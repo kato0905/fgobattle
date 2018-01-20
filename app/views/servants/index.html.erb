@@ -34,7 +34,7 @@ padding-top:150px;
 </span>
 
 <h1>サーヴァント選択</h1>
-<h2>セイバー</h2>
+<h2 id="anchor1">セイバー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 1 %>
     <span class="image">
@@ -43,7 +43,7 @@ padding-top:150px;
   </span>
   <% end %>
 <% end %>
-<h2>アーチャー</h2>
+<h2 id="anchor2">アーチャー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 2 %>
     <span class="image">
@@ -52,7 +52,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>ランサー</h2>
+<h2 id="anchor3">ランサー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 3 %>
     <span class="image">
@@ -61,7 +61,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>ライダー</h2>
+<h2 id="anchor4">ライダー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 4 %>
     <span class="image">
@@ -70,7 +70,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>アサシン</h2>
+<h2 id="anchor5">アサシン</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 5 %>
     <span class="image">
@@ -79,7 +79,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>キャスター</h2>
+<h2 id="anchor6">キャスター</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 6 %>
     <span class="image">
@@ -88,7 +88,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>バーサーカー</h2>
+<h2 id="anchor7">バーサーカー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 7 %>
     <span class="image">
@@ -97,7 +97,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>シールダー</h2>
+<h2 id="anchor8">シールダー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 8 %>
     <span class="image">
@@ -106,7 +106,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>ルーラー</h2>
+<h2 id="anchor9">ルーラー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 9 %>
     <span class="image">
@@ -115,7 +115,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>アヴェンジャー</h2>
+<h2 id="anchor10">アヴェンジャー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 10 %>
     <span class="image">
@@ -124,7 +124,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>ムーンキャンサー</h2>
+<h2 id="anchor11">ムーンキャンサー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 11 %>
     <span class="image">
@@ -133,7 +133,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>アルターエゴ</h2>
+<h2 id="anchor12">アルターエゴ</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 12 %>
     <span class="image">
@@ -142,7 +142,7 @@ padding-top:150px;
     </span>
   <% end %>
 <% end %>
-<h2>フォーリナー</h2>
+<h2 id="anchor13">フォーリナー</h2>
 <% @servants.each do |servant| %>
   <% if servant.class_id == 13 %>
     <span class="image">
@@ -152,3 +152,8 @@ padding-top:150px;
   <% end %>
 <% end %>
 </span>
+
+<span id="footer">
+<a href="#anchor1"><%=image_tag "class/class_1.png", :size => "40x40" %></a><a href="#anchor2"><%=image_tag "class/class_2.png", :size => "40x40" %></a><a href="#anchor3"><%=image_tag "class/class_3.png", :size => "40x40" %></a><a href="#anchor4"><%=image_tag "class/class_4.png", :size => "40x40" %></a><a href="#anchor5"><%=image_tag "class/class_5.png", :size => "40x40" %></a><a href="#anchor6"><%=image_tag "class/class_6.png", :size => "40x40" %></a><a href="#anchor7"><%=image_tag "class/class_7.png", :size => "40x40" %></a><a href="#anchor8"><%=image_tag "class/class_8.png", :size => "40x40" %></a><a href="#anchor9"><%=image_tag "class/class_9.png", :size => "40x40" %></a><a href="#anchor10"><%=image_tag "class/class_10.png", :size => "40x40" %></a><a href="#anchor11"><%=image_tag "class/class_11.png", :size => "40x40" %></a><a href="#anchor12"><%=image_tag "class/class_12.png", :size => "40x40" %></a><a href="#anchor13"><%=image_tag "class/class_13.png", :size => "40x40" %></a>
+</span>
+
