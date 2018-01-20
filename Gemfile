@@ -41,7 +41,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-
+gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri

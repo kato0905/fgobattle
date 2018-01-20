@@ -73,7 +73,7 @@ padding-top:80px;
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 </table>
-合計獲得NP : <span id="np_sum"></span>
+合計獲得NP : <span id="np_sum"></span><span class="npreset1">リセット</span>
 <br><br>
 <% sskill = Skill.where(servant_id: no1.servant_id) %>
 <% sskill.each do |servantskill| %>
@@ -141,7 +141,7 @@ padding-top:80px;
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 </table>
-合計獲得NP : <span id="np_sum2"></span>
+合計獲得NP : <span id="np_sum2"></span><span class="npreset2">リセット</span>
 <br><br>
 <% sskill = Skill.where(servant_id: no2.servant_id) %>
 <% sskill.each do |servantskill| %>
@@ -209,7 +209,7 @@ padding-top:80px;
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 </table>
-合計獲得NP : <span id="np_sum3"></span>
+合計獲得NP : <span id="np_sum3"></span><span class="npreset3">リセット</span>
 <br><br>
 <% sskill = Skill.where(servant_id: no3.servant_id) %>
 <% sskill.each do |servantskill| %>
