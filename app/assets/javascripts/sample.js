@@ -152,6 +152,12 @@ $(document).ready(function(){
     target = document.getElementById("np_sum");
     target.innerHTML = np_sum.toFixed(2);
   });
+  $('span#battle').on('click','span.npreset1',function(){
+    np_sum = 0;
+    $('#cal td').removeClass("cal");
+    target = document.getElementById("np_sum");
+    target.innerHTML = np_sum.toFixed(2);
+  });
   $('span#battle').on('click','#cal2 td',function(){
     np_sum2 = 0;
     $(this).toggleClass("cal2");
@@ -162,6 +168,12 @@ $(document).ready(function(){
     target = document.getElementById("np_sum2");
     target.innerHTML = np_sum2.toFixed(2);
   });
+  $('span#battle').on('click','span.npreset2',function(){
+    np_sum2 = 0;
+    $('#cal2 td').removeClass("cal2");
+    target = document.getElementById("np_sum2");
+    target.innerHTML = np_sum2.toFixed(2);
+  });
   $('span#battle').on('click','#cal3 td',function(){
     np_sum3 = 0;
     $(this).toggleClass("cal3");
@@ -169,6 +181,12 @@ $(document).ready(function(){
       ele3 = $(this).attr("id");
       np_sum3 = np_sum3 + parseFloat(ele3);
     });
+    target = document.getElementById("np_sum3");
+    target.innerHTML = np_sum3.toFixed(2);
+  });
+  $('span#battle').on('click','span.npreset3',function(){
+    np_sum3 = 0;
+    $('#cal3 td').removeClass("cal3");
     target = document.getElementById("np_sum3");
     target.innerHTML = np_sum3.toFixed(2);
   });
