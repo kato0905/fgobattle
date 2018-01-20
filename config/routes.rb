@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :sclasses
-  resources :nps
-  resources :skills
-  resources :attris
-  resources :servants
+#  resources :sclasses
+#  resources :nps
+#  resources :skills
+#  resources :attris
+  resources :servants, :only => :index
   root 'servants#index'
 
   get "servants/:selected" => "servants#index"
