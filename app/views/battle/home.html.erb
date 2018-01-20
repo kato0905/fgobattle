@@ -71,7 +71,7 @@ padding-top:80px;
 <td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
 </tr>
 <tr>
-<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+<td bgcolor="#ecf0f1" id="0">B or Q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
@@ -143,7 +143,7 @@ padding-top:80px;
 <td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
 </tr>
 <tr>
-<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+<td bgcolor="#ecf0f1" id="0">B or Q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
@@ -215,7 +215,7 @@ padding-top:80px;
 <td bgcolor="#2ecc71" id="<%=npget.q1%>"><%= npget.q1 %></td><td bgcolor="#2ecc71" id="<%=npget.q2%>"><%= npget.q2 %></td><td bgcolor="#2ecc71" id="<%=npget.q3%>"><%= npget.q3 %></td>
 </tr>
 <tr>
-<td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+<td bgcolor="#ecf0f1" id="0">B or Q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
@@ -240,7 +240,7 @@ padding-top:80px;
 </form>
 </li>
 </ul>
-
+<br><br>
 <div class="footer_next" align="right">
 next
 <%= image_tag "servants/#{no4.servant_id}.png", :size=> '40x40' %>
@@ -266,4 +266,28 @@ next
   <button type="submit" class="order_change">オーダーチェンジ</button>
 </form>
 </div>
+<table>
+<tr>
+<td rowspan="3" bgcolor="#3498db">Arts1枚目</td>
+<td bgcolor="#3498db">Arts2枚目(*)</td><td bgcolor="#3498db">Arts3枚目(*)</td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71">Quick2枚目(*)</td><td bgcolor="#2ecc71">Quick3枚目(*)</td>
+</tr>
+<tr>
+<td bgcolor="#e74c3c">Buster2枚目(*)</td><td bgcolor="#e74c3c">Buster3枚目(*)</td>
+</tr>
+<tr>
+<td bgcolor="#2ecc71">Quick1枚目</td><td bgcolor="#2ecc71">Quick2枚目</td><td bgcolor="#2ecc71">Quick3枚目</td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">B or Q</td><td bgcolor="#3498db">Arts2枚目</td><td bgcolor="#3498db">Arts3枚目</td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999">Extra</td><td bgcolor="#999999">Extra(3枚とも同じコマンド時)</td>
+</tr>
+</table>
+(*) ... 1枚目Artsボーナスあり<br>
+BusterカードはArtsボーナスなしでNPを獲得しない
+<br><br><br><br><br>
 </span>

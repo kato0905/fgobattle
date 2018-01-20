@@ -266,12 +266,13 @@ td {
   padding: 0.5em;
   width: 100px;
 }
-.command:hover {
+.command:hover :not(.checked){
   opacity: 0.7;
 }
 .checked {
   width: 50px;
   height: 50px;
+  z-index:6;
 }
 span.next {
   position:fixed;
@@ -281,6 +282,8 @@ span.next {
   border:1px solid black;
   border-radius:5px;
   padding:5px 15px;
+  background-color:white;
+  z-index:5;
 }
 span.reset {
   position:fixed;
@@ -290,6 +293,8 @@ span.reset {
   border:1px solid black;
   border-radius:5px;
   padding:5px 15px;
+  background-color:white;
+  z-index:5;
 }
 span.turn0 {
   position:fixed;
@@ -299,6 +304,7 @@ span.turn0 {
   height:80px;
   background-color:#ff9900;
   border-radius:5px;
+  z-index:5;
 }
 span.turn1 {
   position:fixed;
@@ -307,6 +313,7 @@ span.turn1 {
   width:290px;
   height:80px;
   border-radius:5px;
+  z-index:5;
 }
 span.turn2 {
   position:fixed;
@@ -315,6 +322,7 @@ span.turn2 {
   width:290px;
   height:80px;
   border-radius:5px;
+  z-index:5;
 }
 td:hover {
   opacity:0.7
@@ -376,6 +384,15 @@ div.orderchange {
 }
 div.footer_next {
   display:inline;
+}
+span.npreset1 {
+  cursor: pointer;
+}
+span.npreset2 {
+  cursor: pointer;
+}
+span.npreset3 {
+  cursor: pointer;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
