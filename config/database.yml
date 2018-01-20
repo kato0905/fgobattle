@@ -23,8 +23,7 @@ test:
 #production:
 #  <<: *default
 #  database: db/production.sqlite3
-
 production:
   <<: *default
-  adapter: pg
-  database: db/production.pg
+  adapter: postgresql
+  database: mydatabase
