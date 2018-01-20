@@ -147,7 +147,7 @@ padding-top:150px;
 <% end %>
 <h2 id="anchor13">フォーリナー</h2>
 <% @servants.each do |servant| %>
-  <% if servant.class_id == 13 %>
+  <% if servant.class_id == 13 && servant.servant_id != 1000 %>
     <span class="image">
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare}"  %>
     <%= image_tag "servants/#{servant.servant_id}.png", :id => "-#{servant.servant_id}", :size => '80x80', :class => "f#{servant.rare} support" %>
