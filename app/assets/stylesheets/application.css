@@ -77,6 +77,63 @@ top:90px;
 font-size:20px;
 color:red;
 }
+#footer {
+position:fixed;
+bottom:20px;
+right:40px;
+}
+#anchor1 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor2 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor3 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor4 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor5 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor6 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor7 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor8 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor9 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor10 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor11 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor12 {
+padding-top:180px;
+margin-top:-180px;
+}
+#anchor13 {
+padding-top:180px;
+margin-top:-180px;
+}
 /*  Battle home.html.erb  */
 p.text {
   display:inline;
