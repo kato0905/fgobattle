@@ -25,6 +25,7 @@ padding-top:80px;
 <ul class="foo">
 <!--  servant No1  -->
 <li>
+<% npget = Npget.find_by(servant_id: no1.servant_id) %>
 <% for num in 0..4 do %>
   <% if no1.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -41,6 +42,7 @@ padding-top:80px;
 <%= image_tag "servants/#{no1.servant_id}.png", :size=> '80x80', :class => "text2" %>
 <p class="fukidashi2">
 <%= np.name %>   <%=np.rank%><br>
+コマンドカード : <%=np.command%>獲得NP : <%=npget.np%><br>
 [宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
 [OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
 <br><%=np.explain3%> <%=np.data3%>
@@ -54,7 +56,6 @@ padding-top:80px;
   <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
-<% npget = Npget.find_by(servant_id: no1.servant_id) %>
 <table id="cal">
 <tr>
 <td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
@@ -71,6 +72,9 @@ padding-top:80px;
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
 </tr>
 </table>
 合計獲得NP : <span id="np_sum"></span><span class="npreset1">リセット</span>
@@ -93,6 +97,7 @@ padding-top:80px;
 </li><!--  servent No2  -->
 <% np = Np.find_by(servant_id: no2.servant_id)%>
 <li>
+<% npget = Npget.find_by(servant_id: no2.servant_id) %>
 <% for num in 5..9 do %>
   <% if no2.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -109,6 +114,7 @@ padding-top:80px;
 <%= image_tag "servants/#{no2.servant_id}.png", :size=> '80x80', :class => "text2" %>
 <p class="fukidashi2">
 <%= np.name %>   <%=np.rank%><br>
+コマンドカード : <%=np.command%>獲得NP : <%=npget.np%><br>
 [宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
 [OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
 <br><%=np.explain3%> <%=np.data3%>
@@ -122,7 +128,6 @@ padding-top:80px;
   <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
-<% npget = Npget.find_by(servant_id: no2.servant_id) %>
 <table id="cal2">
 <tr>
 <td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
@@ -139,6 +144,9 @@ padding-top:80px;
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
 </tr>
 </table>
 合計獲得NP : <span id="np_sum2"></span><span class="npreset2">リセット</span>
@@ -161,6 +169,7 @@ padding-top:80px;
 </li><!--  servant No3  -->
 <% np = Np.find_by(servant_id: no3.servant_id)%>
 <li>
+<% npget = Npget.find_by(servant_id: no3.servant_id) %>
 <% for num in 10..14 do %>
   <% if no3.command[num%5] == "Q"%>
     <%= image_tag "command/quick.jpg", :size=> '80x80',:class => 'command',:id => num %>
@@ -177,6 +186,7 @@ padding-top:80px;
 <%= image_tag "servants/#{no3.servant_id}.png", :size=> '80x80', :class => "text2" %>
 <p class="fukidashi2-3">
 <%= np.name %>   <%=np.rank%><br>
+コマンドカード : <%=np.command%>獲得NP : <%=npget.np%><br>
 [宝具レベルに依存] <%=np.explain1%> <%=np.data11%> , <%=np.data12%> , <%=np.data13%> , <%=np.data14%> , <%=np.data15%><br>
 [OCに依存]<%=np.explain2%> <%=np.data21%> , <%=np.data22%> , <%=np.data23%> , <%=np.data24%> , <%=np.data25%>
 <br><%=np.explain3%> <%=np.data3%>
@@ -190,7 +200,6 @@ padding-top:80px;
   <p class="fukidashi3"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
-<% npget = Npget.find_by(servant_id: no3.servant_id) %>
 <table id="cal3">
 <tr>
 <td rowspan="3" bgcolor="#3498db" id="<%=npget.a1%>"><%= npget.a1 %></td>
@@ -207,6 +216,9 @@ padding-top:80px;
 </tr>
 <tr>
 <td bgcolor="#ecf0f1" id="0">b or q</td><td bgcolor="#3498db" id="<%=npget.a2%>"><%= npget.a2 %></td><td bgcolor="#3498db" id="<%=npget.a3%>"><%= npget.a3 %></td>
+</tr>
+<tr>
+<td bgcolor="#ecf0f1" id="0">Extra</td><td bgcolor="#999999" id="<%=npget.ex%>"><%=npget.ex%></td><td bgcolor="#999999" id="<%=npget.exp%>"><%=npget.exp%></td>
 </tr>
 </table>
 合計獲得NP : <span id="np_sum3"></span><span class="npreset3">リセット</span>
