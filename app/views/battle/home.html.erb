@@ -50,7 +50,7 @@ padding-top:80px;
 <% cskill = Classskill.where(servant_id: no1.servant_id) %>
 <div class="box">
 <% cskill.each do |classskill| %>
-  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}.png", :size=> '40x40', :class => "classskill" %></p>
   <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
@@ -118,7 +118,7 @@ padding-top:80px;
 <% cskill = Classskill.where(servant_id: no2.servant_id) %>
 <div class="box">
 <% cskill.each do |classskill| %>
-  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}.png", :size=> '40x40', :class => "classskill" %></p>
   <p class="fukidashi"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
@@ -186,7 +186,7 @@ padding-top:80px;
 <% cskill = Classskill.where(servant_id: no3.servant_id) %>
 <div class="box">
 <% cskill.each do |classskill| %>
-  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}", :size=> '40x40', :class => "classskill" %></p>
+  <p class="text"><%= image_tag "classskill_icon/#{classskill.icon_id}.png", :size=> '40x40', :class => "classskill" %></p>
   <p class="fukidashi3"><%= classskill.name %>:<%= classskill.explain %></p>
 <% end %>
 </div>
