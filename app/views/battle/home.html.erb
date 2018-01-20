@@ -13,12 +13,25 @@ padding-top:80px;
 <span class="reset">reset</span>
 <% s = params[:select].split(",")%>
 <% tugi = 4 %>
+<% no1 = Servant.find_by(servant_id: 1000) %><% no2 = Servant.find_by(servant_id: 1000) %><% no3 = Servant.find_by(servant_id: 1000) %><% no4 = Servant.find_by(servant_id: 1000) %><% no5 = Servant.find_by(servant_id: 1000) %><% no6 = Servant.find_by(servant_id: 1000) %>
+<% if s.length >= 1 %>
 <% no1 = Servant.find_by(servant_id: s[0].to_i) %>
+<% end %>
+<% if s.length >= 2 %>
 <% no2 = Servant.find_by(servant_id: s[1].to_i) %>
+<% end %>
+<% if s.length >= 3 %>
 <% no3 = Servant.find_by(servant_id: s[2].to_i) %>
+<% end %>
+<% if s.length >= 4 %>
 <% no4 = Servant.find_by(servant_id: s[3].to_i) %>
+<% end %>
+<% if s.length >= 5 %>
 <% no5 = Servant.find_by(servant_id: s[4].to_i) %>
+<% end %>
+<% if s.length >= 6 %>
 <% no6 = Servant.find_by(servant_id: s[5].to_i) %>
+<% end %>
 <% np = Np.find_by(servant_id: no1.servant_id)%>
 <br>
 
