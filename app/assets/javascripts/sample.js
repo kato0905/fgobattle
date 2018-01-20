@@ -15,11 +15,11 @@ select[2] = document.orderchange.select1.options[2].value;
 select[3] = document.orderchange.select2.options[0].value;
 select[4] = document.orderchange.select2.options[1].value;
 select[5] = document.orderchange.select2.options[2].value;
-var element1 = select.indexOf(document.orderchange.select1.value);
-var element2 = select.indexOf(document.orderchange.select2.value);
-var swap = select[element1];
-select[element1] = select[element2];
-select[element2] = swap;
+var ele1 = $("#select1").prop("selectedIndex");
+var ele2 = $("#select2").prop("selectedIndex")+3;
+var swap = select[ele1];
+select[ele1] = select[ele2];
+select[ele2] = swap;
 document.forms['orderchange'].elements["select"].value = select;
 }
 
