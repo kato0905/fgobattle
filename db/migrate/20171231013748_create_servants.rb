@@ -8,6 +8,8 @@ class CreateServants < ActiveRecord::Migration[5.1]
       t.integer :attri_id
       t.string :command
       t.integer :np_get
+      t.integer :hp
+      t.integer :atk
 
       t.timestamps
     end

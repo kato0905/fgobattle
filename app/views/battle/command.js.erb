@@ -1,0 +1,47 @@
+//変数宣言
+<%= render :partial => "var" %>
+//敵へのダメージ計算
+<%= render :partial => "attackinenemydamage" %>
+//敵からの攻撃
+<%= render :partial => "enemyattack" %>
+//次のコマンドカード配布
+<%= render :partial => "nextcommand" %>
+
+for(i=0;i<8;i++){
+  $("#id2").data("select"+i,0);
+}
+
+$("#star").html("合計獲得スター:"+star+"/"+realstar1*10+"%/"+realstar2*10+"%/"+realstar3*10+"%/"+realstar4*10+"%/"+realstar5*10+"%")
+$('#turn').html(turn+1);
+$('#id1').data('turn',turn+1);
+$('input[type=submit]').prop('disabled','disabled');
+if($("#id1").data("np1") > 100){
+  $(".c5").attr("disabled",false)
+  $("#c5 img").css("opacity","1")
+}else{
+  $(".c5").attr("disabled",true)
+  $("#c5 img").css("opacity","0.6")
+}
+if($("#id1").data("np2") > 100){
+  $(".c6").attr("disabled",false)
+  $("#c6 img").css("opacity","1")
+}else{
+  $(".c6").attr("disabled",true)
+  $("#c6 img").css("opacity","0.6")
+}
+if($("#id1").data("np3") > 100){
+  $(".c7").attr("disabled",false)
+  $("#c7 img").css("opacity","1")
+}else{
+  $(".c7").attr("disabled",true)
+  $("#c7 img").css("opacity","0.6")
+}
+for(i=5;i<8;i++){
+  $(".c"+i+"1").css('z-index','1');
+  $(".c"+i+"2").css('z-index','1');
+  $(".c"+i+"3").css('z-index','1');
+}
+$("#target1").fadeIn("fast");
+$('#target1').fadeOut(400);
+$("#target2").delay(500).fadeIn("fast");
+$('#target2').delay(500).fadeOut(400);

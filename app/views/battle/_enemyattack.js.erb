@@ -1,0 +1,252 @@
+var currentdamage1 = parseInt("<%= params[:enemyatk1] %>");
+var currentdamage2 = parseInt("<%= params[:enemyatk2] %>");
+var currentdamage3 = parseInt("<%= params[:enemyatk3] %>");
+
+dd = 1;
+ee = currentdamage1;
+
+
+for(i=1;i<4;i++){
+  var random = Math.floor(Math.random() * 3);//0,1,2
+  random = random+1;//1,2,3
+//クラス補正
+  switch(parseInt(eval("class"+random))) {//攻撃先のクラスを参照
+    case 1:
+      if(eval("enemyclass"+i) == 2){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 3){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*0.5;
+      }else {
+        ee = eval("currentdamage"+i)
+      }
+    break;
+    case 2:
+      if(eval("enemyclass"+i) == 3){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 1){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*0.5;
+      }else{
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 3:
+      if(eval("enemyclass"+i) == 1){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 2){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*0.5;
+      }else {
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 4:
+      if(eval("enemyclass"+i) == 5){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 6){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*1.5;
+      }else{
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 5:
+      if(eval("enemyclass"+i) == 6){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 4){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*1.5;
+      }else {
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 6:
+      if(eval("enemyclass"+i) == 4){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 5){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 12){
+        ee = eval("currentdamage"+i)*1.5;
+      }else{
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 7:
+      if(eval("enemyclass"+i) != 7 && eval("enemyclass"+i) != 8){
+        ee = eval("currentdamage"+i)*2;
+      }else if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 8){
+        ee = eval("currentdamage"+i);
+      }else {
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 8:
+      ee = eval("currentdamage"+i);
+    break;
+    case 9:
+      if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 8 || eval("enemyclass"+i) == 9 || eval("enemyclass"+i) == 12 || eval("enemyclass"+i) == 13){
+        ee = eval("currentdamage"+i);
+      }else if(eval("enemyclass"+i) == 10){
+        ee = eval("currentdamage"+i)*2;
+      }else {//特殊クラスまで与ダメージが半減してしまうから注意
+        ee = eval("currentdamage"+i)*0.5;
+      }
+    break;
+    case 10:
+      if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 9){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 11){
+        ee = eval("currentdamage"+i)*2;
+      }else {
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 11:
+      if(eval("enemyclass"+i) == 7){
+        ee = eval("currentdamage"+i)*1.5;
+      }else if(eval("enemyclass"+i) == 10){
+        ee = eval("currentdamage"+i)*0.5;
+      }else if(eval("enemyclass"+i) == 9){
+        ee = eval("currentdamage"+i)*2;
+      }else {
+        ee = eval("currentdamage"+i);
+      }
+    break;
+    case 12:
+    if(eval("enemyclass"+i) == 7){
+      ee = eval("currentdamage"+i)*1.5;
+    }else if(eval("enemyclass"+i) == 13){
+      ee = eval("currentdamage"+i)*0.5;
+    }else {
+      ee = eval("currentdamage"+i);
+    }
+    break;
+    case 13:
+    if(eval("enemyclass"+i) == 12 || eval("enemyclass"+i) == 13){
+      ee = eval("currentdamage"+i)*2;
+    }else if(eval("enemyclass"+i) == 7){
+      ee = eval("currentdamage"+i)*0.5;
+    }else {
+      ee = eval("currentdamage"+i);
+    }
+    break;
+  }
+  if(i==1) {
+    currentdamage1 = parseInt(ee);
+  }else if(i==2){
+    currentdamage2 = parseInt(ee);
+  }else if(i==3){
+    currentdamage3 = parseInt(ee);
+  }
+
+
+switch(parseInt(eval("attri"+random))) {
+  case 1:
+  if(eval("enemyattri"+i) == 2){
+    dd = 1.1;
+  }else if(eval("enemyattri"+i) == 3){
+    dd = 0.9;
+  }
+  break;
+  case 2:
+  if(eval("enemyattri"+i) == 3){
+    dd = 1.1;
+  }else if(eval("enemyattri"+i) == 1){
+    dd = 0.9;
+  }
+  break;
+  case 3:
+  if(eval("enemyattri"+i) == 1){
+    dd = 1.1;
+  }else if(eval("enemyattri"+i) == 2){
+    dd = 0.9;
+  }
+  break;
+  case 4:
+  if(eval("enemyattri"+i) == 5){
+    dd = 1.1;
+  }
+  break;
+  case 5:
+  if(eval("enemyattri"+i) == 4){
+    dd = 1.1;
+  }
+  break;
+}
+if(i==1) {
+  currentdamage1 = currentdamage1*dd;
+}else if(i==2) {
+  currentdamage2 = currentdamage2*dd;
+}else if(i==3) {
+  currentdamage3 = currentdamage3*dd;
+}
+
+
+if($('.e1').attr('name') != "enemy" && $('.e2').attr('name') != "enemy" && $('.e3').attr('name') != "enemy"){
+  break;
+}
+  damage1 = $('#id1').data('hp1');
+  damage2 = $('#id1').data('hp2');
+  damage3 = $('#id1').data('hp3');
+if($('.e'+i).attr('name') == "enemy"){
+  tmp = parseInt(eval("damage"+random)) + parseInt(eval("currentdamage"+i));//今まで受けたダメージにこのターンのダメージを加算
+  $('#id1').data('hp'+random,tmp);
+  $('#hp'+random).html(parseInt(eval("hp"+random))-parseInt(tmp));
+  $('.servanthpbar'+random).val(parseInt(eval("hp"+random))-parseInt(tmp))
+
+  switch(parseInt(eval("class"+random))){
+    case 1:
+    case 4:
+    case 6:
+    case 8:
+    case 9:
+    case 11:
+    case 13:
+      nn = 3*eval("enemyhit"+i);
+    break;
+    case 2:
+    case 3:
+    case 5:
+    case 12:
+      nn = 4*eval("enemyhit"+i);
+    break;
+    case 7:
+    case 10:
+      nn = 5*eval("enemyhit"+i);
+    break;
+  }
+
+  var tmpnp = $('#id1').data('np'+random);
+  $('#id1').data('np'+random,parseFloat(nn)+parseFloat(tmpnp));//累計NP更新
+  $('#np'+random).html(parseFloat(tmpnp)+parseFloat(nn));//xx/100の部分を更新
+  $('.servantnpbar'+random).val(parseFloat(tmpnp)+parseFloat(nn));//NPバーを更新
+
+}else{
+//エネミーの数が３じゃないとき
+}
+
+}

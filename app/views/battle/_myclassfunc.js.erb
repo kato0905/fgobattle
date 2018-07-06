@@ -1,0 +1,22 @@
+//自分のクラスをmyclassで受け取り、倍率をmyrateで返す
+var myrate;
+switch(myclass) {
+  case 2:
+    myrate = 0.95;
+    break;
+  case 3:
+    myrate = 1.05;
+    break;
+  case 5:
+  case 6:
+    myrate = 0.9;
+    break;
+  case 7:
+  case 9:
+  case 10:
+    myrate = 1.1;
+    break;
+  default:
+    myrate = 1;
+    break;
+}

@@ -38,6 +38,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # gem 'capistrano-rails', group: :development
 
 # 追加
+gem "gon"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'

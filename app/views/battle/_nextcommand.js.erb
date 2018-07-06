@@ -1,0 +1,253 @@
+var currentarray = [];
+var ram = [1,2,3,4,5];
+var commandstarsum = 0;
+var realstar1 = 0;
+var realstar2 = 0;
+var realstar3 = 0;
+var realstar4 = 0;
+var realstar5 = 0;
+var color;
+if(alreadycommand.length == 3){
+  var usecommand = [newarray[5],newarray[6],newarray[7],newarray[8],newarray[9]]
+  alreadycommand = []
+  alreadycommand.push(usecommand)
+  $('#id1').data('command', alreadycommand);//５へ
+  currentarray[0]=newarray[5];
+  currentarray[1]=newarray[6];
+  currentarray[2]=newarray[7];
+  currentarray[3]=newarray[8];
+  currentarray[4]=newarray[9];
+for(i=0;i<5;i++){
+  if(newarray[5+i].slice(-1) == "B"){
+    color="red";
+  }else if(newarray[5+i].slice(-1) == "Q"){
+    color="green"
+  }else {
+    color="blue"
+  }
+  $('#c'+i).html(
+    "<img src='/assets/servants/"+newarray[5+i].slice(0,newarray[5+i].length-1)+".png' width='80' height='80' style='position:relative;z-index:3;border:solid 5px "+color+"'/>"+
+    "<img src='/assets/num/1.png' width='40' height='40' class='c"+i+"1' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+    "<img src='/assets/num/2.png' width='40' height='40' class='c"+i+"2' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+    "<img src='/assets/num/3.png' width='40' height='40' class='c"+i+"3' style='position:absolute;right:0;bottom:0;z-index:1'/>"
+  );
+}
+  $('#card.c0').val(newarray[5])
+  $('#card.c1').val(newarray[6])
+  $('#card.c2').val(newarray[7])
+  $('#card.c3').val(newarray[8])
+  $('#card.c4').val(newarray[9])
+}else if(alreadycommand.length == 0){
+  var usecommand = [newarray[0],newarray[1],newarray[2],newarray[3],newarray[4]]
+  alreadycommand.push(usecommand);
+  $('#id1').data('command', alreadycommand);//5へ
+  currentarray[0]=newarray[5];
+  currentarray[1]=newarray[6];
+  currentarray[2]=newarray[7];
+  currentarray[3]=newarray[8];
+  currentarray[4]=newarray[9];
+  for(i=0;i<5;i++){
+    if(newarray[5+i].slice(-1) == "B"){
+      color="red";
+    }else if(newarray[5+i].slice(-1) == "Q"){
+      color="green"
+    }else {
+      color="blue"
+    }
+    $('#c'+i).html(
+      "<img src='/assets/servants/"+newarray[5+i].slice(0,newarray[5+i].length-1)+".png' width='80' height='80' style='position:relative;z-index:3;border:solid 5px "+color+"'/>"+
+      "<img src='/assets/num/1.png' width='40' height='40' class='c"+i+"1' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/2.png' width='40' height='40' class='c"+i+"2' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/3.png' width='40' height='40' class='c"+i+"3' style='position:absolute;right:0;bottom:0;z-index:1'/>"
+    );
+  }
+  $('#card.c0').val(newarray[5])
+  $('#card.c1').val(newarray[6])
+  $('#card.c2').val(newarray[7])
+  $('#card.c3').val(newarray[8])
+  $('#card.c4').val(newarray[9])
+}else if(alreadycommand.length == 1){
+  var usecommand = [newarray[5],newarray[6],newarray[7],newarray[8],newarray[9]]
+  alreadycommand.push(usecommand);
+  $('#id1').data('command', alreadycommand);//10へ
+  currentarray[0]=newarray[10];
+  currentarray[1]=newarray[11];
+  currentarray[2]=newarray[12];
+  currentarray[3]=newarray[13];
+  currentarray[4]=newarray[14];
+  for(i=0;i<5;i++){
+    if(newarray[10+i].slice(-1) == "B"){
+      color="red";
+    }else if(newarray[10+i].slice(-1) == "Q"){
+      color="green"
+    }else {
+      color="blue"
+    }
+    $('#c'+i).html(
+      "<img src='/assets/servants/"+newarray[10+i].slice(0,newarray[10+i].length-1)+".png' width='80' height='80' style='position:relative;z-index:3;border:solid 5px "+color+"'/>"+
+      "<img src='/assets/num/1.png' width='40' height='40' class='c"+i+"1' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/2.png' width='40' height='40' class='c"+i+"2' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/3.png' width='40' height='40' class='c"+i+"3' style='position:absolute;right:0;bottom:0;z-index:1'/>"
+    );
+  }
+  $('#card.c0').val(newarray[10])
+  $('#card.c1').val(newarray[11])
+  $('#card.c2').val(newarray[12])
+  $('#card.c3').val(newarray[13])
+  $('#card.c4').val(newarray[14])
+}else if(alreadycommand.length == 2){
+  var usecommand = [newarray[10],newarray[11],newarray[12],newarray[13],newarray[14]]
+  alreadycommand.push(usecommand);
+  $('#id1').data('command', alreadycommand); //15へ
+  for(var i = newarray.length - 1; i > 0; i--){
+    var r = Math.floor(Math.random() * (i + 1));
+    var tmper = newarray[i];
+    newarray[i] = newarray[r];
+    newarray[r] = tmper;
+  }
+  $('#id1').data('nextcommand', newarray);
+  currentarray[0]=newarray[0];
+  currentarray[1]=newarray[1];
+  currentarray[2]=newarray[2];
+  currentarray[3]=newarray[3];
+  currentarray[4]=newarray[4];
+  for(i=0;i<5;i++){
+    if(newarray[i].slice(-1) == "B"){
+      color="red";
+    }else if(newarray[i].slice(-1) == "Q"){
+      color="green"
+    }else {
+      color="blue"
+    }
+    $('#c'+i).html(
+      "<img src='/assets/servants/"+newarray[i].slice(0,newarray[i].length-1)+".png' width='80' height='80' style='position:relative;z-index:3;border:solid 5px "+color+"'/>"+
+      "<img src='/assets/num/1.png' width='40' height='40' class='c"+i+"1' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/2.png' width='40' height='40' class='c"+i+"2' style='position:absolute;right:0;bottom:0;z-index:1'/>"+
+      "<img src='/assets/num/3.png' width='40' height='40' class='c"+i+"3' style='position:absolute;right:0;bottom:0;z-index:1'/>"
+    );
+  }
+  $('#card.c0').val(newarray[0])
+  $('#card.c1').val(newarray[1])
+  $('#card.c2').val(newarray[2])
+  $('#card.c3').val(newarray[3])
+  $('#card.c4').val(newarray[4])
+}
+//$('h1').html(usecommand);
+
+$("[name=card]").each(function(){
+  $(this).prop('checked', false);
+})
+$("[name=enemy]").each(function(){
+  $(this).prop('checked', false);
+})
+//スター分配スターの数はid2のdata-starに入れる
+for(i=0;i<5;i++){
+  if(parseInt(currentarray[i].slice(0,currentarray[i].length-1)) == parseInt(no1)){
+    cc = class1
+  }else if(parseInt(currentarray[i].slice(0,currentarray[i].length-1)) == parseInt(no2)){
+    cc = class2
+  }else if(parseInt(currentarray[i].slice(0,currentarray[i].length-1)) == parseInt(no3)){
+    cc = class3
+  }
+  switch(parseInt(cc)){
+    case 1:
+    case 5:
+    case 8:
+    case 9:
+    case 12:
+      cc = 100;
+    break;
+    case 2:
+    case 13:
+      cc = 150;
+    break;
+    case 3:
+      cc = 90;
+    break;
+    case 4:
+      cc = 200;
+    break;
+    case 6:
+    case 11:
+      cc = 50;
+    break;
+    case 7:
+      cc = 10;
+    break;
+    case 10:
+      cc = 30;
+    break;
+  }
+  if(i==0){
+    var commandstar1 = cc
+  }else if(i==1){
+    var commandstar2 = cc
+  }else if(i==2){
+    var commandstar3 = cc
+  }else if(i==3){
+    var commandstar4 = cc
+  }else if(i==4){
+    var commandstar5 = cc
+  }
+}
+for(var i = ram.length - 1; i > 0; i--){
+  var r = Math.floor(Math.random() * (i + 1));
+  var tmper = ram[i];
+  ram[i] = ram[r];
+  ram[r] = tmper;
+}
+
+  if(ram[0] == 1){
+    commandstar1 = commandstar1 + 30;
+  }else if(ram[0] == 2){
+    commandstar2 = commandstar2 + 30;
+  }else if(ram[0] == 3){
+    commandstar3 = commandstar3 + 30;
+  }else if(ram[0] == 4){
+    commandstar4 = commandstar4 + 30;
+  }else if(ram[0] == 5){
+    commandstar5 = commandstar5 + 30;
+  }
+for(i=0;i<3;i++){
+  if(ram[i] == 1){
+    commandstar1 = commandstar1 + 20;
+  }else if(ram[i] == 2){
+    commandstar2 = commandstar2 + 20;
+  }else if(ram[i] == 3){
+    commandstar3 = commandstar3 + 20;
+  }else if(ram[i] == 4){
+    commandstar4 = commandstar4 + 20;
+  }else if(ram[i] == 5){
+    commandstar5 = commandstar5 + 20;
+  }
+}
+commandstarsum = commandstar1+commandstar2+commandstar3+commandstar4+commandstar5;
+
+for(i=0;i<star;i++){
+  var random = Math.floor(Math.random() * commandstarsum);
+  if(commandstar1>random && realstar1 < 10){
+    realstar1 = realstar1+1;
+  }else if((commandstar1+commandstar2)>random && realstar2 < 10){
+    realstar2 = realstar2+1;
+  }else if((commandstar1+commandstar2+commandstar3)>random && realstar3 < 10){
+    realstar3 = realstar3+1;
+  }else if((commandstar1+commandstar2+commandstar3+commandstar4)>random && realstar4 < 10){
+    realstar4 = realstar4+1;
+  }else if(realstar5 < 10){
+    realstar5 = realstar5+1;
+  }else {
+    if(realstar1 == 10 && realstar2 == 10 && realstar3 == 10 && realstar4 == 10 && realstar5 == 10){
+      break;
+    }else{
+     i = i-1;
+   }
+  }
+}
+
+$('#id2').data('star1',realstar1);
+$('#id2').data('star2',realstar2);
+$('#id2').data('star3',realstar3);
+$('#id2').data('star4',realstar4);
+$('#id2').data('star5',realstar5);
+
+$('input[type=checkbox]').attr("disabled",false);

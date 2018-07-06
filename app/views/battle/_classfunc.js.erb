@@ -1,0 +1,147 @@
+//敵のクラスをeneclass、自分のクラスをmyclassとして倍率を出す
+var classrate = 1;
+switch(eneclass) {//敵のクラスがcaseの場合
+  case 1://セイバー
+    if(myclass == 2){//アーチャー
+      classrate = 2;
+    }else if(myclass == 3){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 0.5;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 2://アーチャー
+    if(myclass == 3){
+      classrate = 2;
+    }else if(myclass == 1){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 0.5;
+    }else{
+      classrate = 1;
+    }
+  break;
+  case 3:
+    if(myclass == 1){
+      classrate = 2;
+    }else if(myclass == 2){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 0.5;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 4:
+    if(myclass == 5){
+      classrate = 2;
+    }else if(myclass == 6){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 1.5;
+    }else{
+      classrate = 1;
+    }
+  break;
+  case 5:
+    if(myclass == 6){
+      classrate = 2;
+    }else if(myclass == 4){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 1.5;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 6:
+    if(myclass == 4){
+      classrate = 2;
+    }else if(myclass == 5){
+      classrate = 0.5;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 12){
+      classrate = 1.5;
+    }else{
+      classrate = 1;
+    }
+  break;
+  case 7:
+    if(myclass != 7 && myclass != 8){
+      classrate = 2;
+    }else if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 8){
+      classrate = 1;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 8:
+    classrate = 1;
+  break;
+  case 9:
+    if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 8 || myclass == 9 || myclass == 12 || myclass == 13){
+      classrate = 1;
+    }else if(myclass == 10){
+      classrate = 2;
+    }else {//特殊クラスまで与ダメージが半減してしまうから注意
+      classrate = 0.5;
+    }
+  break;
+  case 10:
+    if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 9){
+      classrate = 0.5;
+    }else if(myclass == 11){
+      classrate = 2;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 11:
+    if(myclass == 7){
+      classrate = 1.5;
+    }else if(myclass == 10){
+      classrate = 0.5;
+    }else if(myclass == 9){
+      classrate = 2;
+    }else {
+      classrate = 1;
+    }
+  break;
+  case 12:
+  if(myclass == 7){
+    classrate = 1.5;
+  }else if(myclass == 13){
+    classrate = 0.5;
+  }else {
+    classrate = 1;
+  }
+  break;
+  case 13:
+  if(myclass == 12 || myclass == 13){
+    classrate = 2;
+  }else if(myclass == 7){
+    classrate = 0.5;
+  }else {
+    classrate = 1;
+  }
+  break;
+}

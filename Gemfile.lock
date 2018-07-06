@@ -218,6 +218,10 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gon (6.2.0)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
@@ -299,6 +303,8 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    request_store (1.4.1)
+      rack (>= 1.4)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -360,6 +366,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   fog
+  gon
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
   listen (>= 3.0.5, < 3.2)
@@ -377,4 +384,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

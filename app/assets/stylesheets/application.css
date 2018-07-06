@@ -146,6 +146,15 @@ padding-top:180px;
 margin-top:-180px;
 }
 /*  Battle home.html.erb  */
+#tips{
+  width: 800px;
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: solid 1px black;
+}
+
+
 p.text {
   display:inline;
   cursor:default;
