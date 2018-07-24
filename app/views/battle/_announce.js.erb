@@ -1,0 +1,51 @@
+//各コマンドカードで攻撃した敵の番号：ened1~3
+//各コマンドカードで敵に与えたダメージ：damagetoenemy1~3
+//各コマンドカードのHit数：hitd1~3
+//weakとresistを考えた時のダメージ色：commandcolor1~3
+//敵の名前：enemyname1~3
+//敵からの攻撃：currentdamage1~3
+//敵からの攻撃の対象となったサーヴァントの番号：servanted1~3
+
+if(extraattack != 0){
+  var getData = String($("#tips").html());
+  var addData = "Turn"+turn+":"+commandname1+"の<font color='"+commandcolor1+"'>"+parseInt(damagetoenemy1)+"</font>ダメージ! "+commandname2+"の<font color='"+commandcolor2+"'>"+parseInt(damagetoenemy2)+"</font>ダメージ! "+commandname3+"の<font color='"+commandcolor3+"'>"+parseInt(damagetoenemy3)+"</font>ダメージ! EXTRAATTACKで"+parseInt(extradamage)+"ダメージ！<br>"
+  $("#tips").html(getData+addData);
+}else{
+  var getData = String($("#tips").html());
+  var addData = "Turn"+turn+":"+commandname1+"の<font color='"+commandcolor1+"'>"+parseInt(damagetoenemy1)+"</font>ダメージ! "+commandname2+"の<font color='"+commandcolor2+"'>"+parseInt(damagetoenemy2)+"</font>ダメージ! "+commandname3+"の<font color='"+commandcolor3+"'>"+parseInt(damagetoenemy3)+"</font>ダメージ!<br>"
+  $("#tips").html(getData+addData);
+}
+
+var getData = String($("#tips").html());
+var addData = "Turn"+turn+":"+eval("name"+servanted1)+"が"+parseInt(currentdamage1)+"ダメージ! "+eval("name"+servanted2)+"が"+parseInt(currentdamage2)+"ダメージ! "+eval("name"+servanted3)+"が"+parseInt(currentdamage3)+"ダメージ!<br>"
+$("#tips").html(getData+addData);
+
+
+
+  for(i=1;i<4;i++){
+    if(i == 1){//1枚目
+      $("#announce"+ened1+"1").html("<font color='"+eval("commandcolor"+i)+"' size='6'>"+parseInt(eval("damagetoenemy"+i))+"</font>");
+      $("#announce"+ened1+"1").delay(time).fadeIn("fast");
+      //$("#action1").html("<img src='/assets/servants/"+text[0].slice(0,text[0].length-1)+".png' width='160' height='160' style='position:relative;z-index:3;'/>");
+      //$("#action1").delay(time).fadeIn(1000, "linear");
+      $("#announce"+ened1+"1").delay(time).fadeOut(400);
+      //$("#action1").delay(time).fadeOut(3000);
+      time = time+600;
+    }else if(i == 2){
+      $("#announce"+ened2+"2").html("<font color='"+eval("commandcolor"+i)+"' size='6'>"+parseInt(eval("damagetoenemy"+i))+"</font>");
+      $("#announce"+ened2+"2").delay(time).fadeIn("fast");
+      //$("#action2").html("<img src='/assets/servants/"+text[1].slice(0,text[1].length-1)+".png' width='160' height='160' style='position:relative;z-index:3;'/>");
+      //$("#action2").delay(time).fadeIn(1000, "linear");
+      //$("#action2").delay(time).fadeOut(3000);
+      $("#announce"+ened2+"2").delay(time).fadeOut(400);
+      time = time+600;
+    }else if(i == 3){
+      $("#announce"+ened3+"3").html("<font color='"+eval("commandcolor"+i)+"' size='6'>"+parseInt(eval("damagetoenemy"+i))+"</font>");
+      $("#announce"+ened3+"3").delay(time).fadeIn("fast");
+      //$("#action3").html("<img src='/assets/servants/"+text[2].slice(0,text[2].length-1)+".png' width='160' height='160' style='position:relative;z-index:3;'/>");
+      //$("#action3").delay(time).fadeIn(1000, "linear");
+      //$("#action3").delay(time).fadeOut(3000);
+      $("#announce"+ened3+"3").delay(time).fadeOut(400);
+      time = time+600;
+    }
+  }

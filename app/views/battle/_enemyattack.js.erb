@@ -1,6 +1,9 @@
 var currentdamage1 = parseInt("<%= params[:enemyatk1] %>");
 var currentdamage2 = parseInt("<%= params[:enemyatk2] %>");
 var currentdamage3 = parseInt("<%= params[:enemyatk3] %>");
+var servanted1;
+var servanted2;
+var servanted3;
 
 dd = 1;
 ee = currentdamage1;
@@ -9,6 +12,14 @@ ee = currentdamage1;
 for(i=1;i<4;i++){
   var random = Math.floor(Math.random() * 3);//0,1,2
   random = random+1;//1,2,3
+  if(i==1){
+    servanted1 = random;
+  }else if(i==2){
+    servanted2 = random;
+  }else if(i==3){
+    servanted3 = random;
+  }
+
 //クラス補正
   switch(parseInt(eval("class"+random))) {//攻撃先のクラスを参照
     case 1:
@@ -215,7 +226,7 @@ if($('.e1').attr('name') != "enemy" && $('.e2').attr('name') != "enemy" && $('.e
 if($('.e'+i).attr('name') == "enemy"){
   tmp = parseInt(eval("damage"+random)) + parseInt(eval("currentdamage"+i));//今まで受けたダメージにこのターンのダメージを加算
   $('#id1').data('hp'+random,tmp);
-  $('#hp'+random).html(parseInt(eval("hp"+random))-parseInt(tmp));
+  $("#servant").find('#hp'+random).html(parseInt(eval("hp"+random))-parseInt(tmp));
   $('.servanthpbar'+random).val(parseInt(eval("hp"+random))-parseInt(tmp))
 
   switch(parseInt(eval("class"+random))){
@@ -242,7 +253,7 @@ if($('.e'+i).attr('name') == "enemy"){
 
   var tmpnp = $('#id1').data('np'+random);
   $('#id1').data('np'+random,parseFloat(nn)+parseFloat(tmpnp));//累計NP更新
-  $('#np'+random).html(parseFloat(tmpnp)+parseFloat(nn));//xx/100の部分を更新
+  $("#servant").find('#np'+random).html(parseFloat(tmpnp)+parseFloat(nn));//xx/100の部分を更新
   $('.servantnpbar'+random).val(parseFloat(tmpnp)+parseFloat(nn));//NPバーを更新
 
 }else{

@@ -1,0 +1,81 @@
+
+//各種ボタン要素を取得しておく
+var dialog = document.getElementById('dialog');
+var servant_1 = document.getElementById('servant_1');
+var servant_2 = document.getElementById('servant_2');
+var servant_3 = document.getElementById('servant_3');
+var target = 0;
+var no = "<%=params[:no]%>";
+
+
+//ターゲットを選択するかどうかを判別
+"<% @sskill.each do |sskill| %>"
+  if("<%=sskill.target%>" == 1){
+    target = 1;
+  }else if("<%=sskill.target%>" == 3){
+    target = 3;
+  }else {
+    target = 0;
+  }
+"<% end %>"
+
+
+//ターゲットを選ばないスキルの場合
+if(target == 0){
+  "<% @sskill.each do |sskill| %>"
+    if("<%=sskill.target%>" == 0){
+      if("<%= sskill.turn %>" == 0 && "<%= sskill.count %>" == 0){
+        //即時発動
+        if("<%=sskill.effect%>" == "heal"){
+          tmp = parseInt($('#hp'+no).val())+parseInt("<%=sskill.mag%>");//回復した後のHP
+          if(tmp > $('#maxhp'+no).text() ){
+            tmp = $('#maxhp'+no).text();
+          }
+          $("#servant").find('#hp'+'<%=params[:no]%>').html(parseInt(tmp));
+          $('.servanthpbar'+'<%=params[:no]%>').val(parseInt(tmp));
+        }
+        var getData = String($("#tips").html());
+        var addData = "即時発動:<%= sskill.effect %><br>"
+        $("#tips").html(getData+addData);
+      }else{
+        //ターン数のあるもの
+        $('#id3').data('skill1e',"<%= sskill.effect %>");//effect 効果
+        $('#id3').data('skill1t',"<%= sskill.turn %>");//turn ターン数
+        $('#id3').data('skill1c',"<%= sskill.count %>");//count 回数
+        $('#id3').data('skill1m',"<%= sskill.mag %>");//mag 倍率
+        var getData = String($("#tips").html());
+        var addData = "自身に<%= sskill.effect %><br>"
+        $("#tips").html(getData+addData);
+      }
+    }else if("<%=sskill.target%>" == 5){
+      //対象を選ばない効果(スター発生)
+      var getData = String($("#tips").html());
+      var addData = "即時発動:<%= sskill.effect %><br>"
+      $("#tips").html(getData+addData);
+    }
+  "<% end %>"
+}
+
+
+//ターゲットを選ぶスキルの場合
+if(target == 1 || target == 3){
+  dialog.style.display = 'block';
+
+  servant_1.addEventListener('click', function(){
+    alert('1');
+    target = 1;
+    dialog.style.display = 'none';
+   });
+
+  servant_2.addEventListener('click', function(){
+    alert('2');
+    target = 2;
+    dialog.style.display = 'none';
+  });
+
+  servant_3.addEventListener('click', function(){
+    alert('3');
+    target = 3;
+    dialog.style.display = 'none';
+  });
+}

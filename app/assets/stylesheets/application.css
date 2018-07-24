@@ -145,15 +145,66 @@ margin-top:-180px;
 padding-top:180px;
 margin-top:-180px;
 }
+
+
+
 /*  Battle home.html.erb  */
+
+
+#dialog {
+    width: 250px;
+    margin: auto;
+    margin-top: 4vh;
+    padding: 3px 2px;
+    display: none;
+    text-align: center;
+    border: 1px solid #aaa;
+    box-shadow: 2px 2px 4px #888;
+}
+
+#enemy{
+  float: left;
+}
 #tips{
   width: 800px;
   height: 200px;
   overflow-y: scroll;
   overflow-x: hidden;
   border: solid 1px black;
+  float: right;
 }
+#action{
+  width: 800px;
+  height: 300px;
+  float:right;
+}
+#enemyselect {
+  width: 500px;
+  height: 300px;
+  float: left;
+}
+#enemyselect .ene{
+  float:left;
+}
+#command{
+  float: left;
+}
+#command .command{
+  float: left;
+}
+#submit{
+  float: left;
+}
+#servant{
+  float: right;
+}
+#servant .chara{
+  float: right;
+  width: 240px;
+  height: 300px;
 
+  margin: 15px;
+}
 
 p.text {
   display:inline;

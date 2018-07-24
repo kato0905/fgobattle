@@ -397,50 +397,6 @@ BusterカードはArtsボーナスなしでNPを獲得しない
 <% nph2=[nptype2,npatk2] %>
 <% nph3=[nptype3,npatk3] %>
 
-<div id="id1" data-turn="1" data-hp1="0" data-hp2="0" data-hp3="0" data-np1="0" data-np2="0" data-np3="0" data-command=[] data-nextcommand=[] data-enemyhp1=0 data-enemyhp2=0 data-enemyhp3=0></div>
-<div id="id2" data-star1=0 data-star2=0 data-star3=0 data-star4=0 data-star5=0 data-select0=0 data-select1=0 data-select2=0 data-select3=0 data-select4=0 data-select5=0 data-select6=0 data-select7=0 ></div>
-
-turn<span id="turn">1</span><br>
-
-<%= image_tag "servants/#{@no1.servant_id}.png", :size=> '80x80' %>
-<%= @no1.name %><%= image_tag "class/class_#{@no1.class_id}.png", :size=> '20x20' %>HP:<span id="hp1"><%= @no1.Hp %></span>/<%= @no1.Hp %>
-<meter class="servanthpbar1" max="<%=@no1.Hp%>" low="<%=@no1.Hp*0.5%>" high="<%=@no1.Hp%>" value="<%=@no1.Hp%>" style="width: 200px;"></meter>
- ATK:<%= @no1.Atk %>
- NP:<span id="np1">0</span>/100
- <meter class="servantnpbar1" max="100" value="0" style="width: 150px;"></meter>
- <br>
-<% sskill = Skill.where(servant_id: @no1.servant_id) %>
-<% sskill.each do |servantskill| %>
-  <%= servantskill.name %>
-  <%= servantskill.explain%>
-<% end %><br>
-
-<%= image_tag "servants/#{@no2.servant_id}.png", :size=> '80x80' %>
-<%= @no2.name %><%= image_tag "class/class_#{@no2.class_id}.png", :size=> '20x20' %>HP:<span id="hp2"><%= @no2.Hp %></span>/<%= @no2.Hp %>
-<meter class="servanthpbar2" max="<%=@no2.Hp%>" low="<%=@no2.Hp*0.5%>" high="<%=@no2.Hp%>" value="<%=@no2.Hp%>" style="width: 200px;"></meter>
-ATK:<%= @no2.Atk %>
-NP:<span id="np2">0</span>/100
-<meter class="servantnpbar2" max="100" value="0" style="width: 150px;"></meter>
-<br>
-<% sskill = Skill.where(servant_id: @no2.servant_id) %>
-<% sskill.each do |servantskill| %>
-  <%= servantskill.name %>
-  <%= servantskill.explain%>
-<% end %><br>
-
-<%= image_tag "servants/#{@no3.servant_id}.png", :size=> '80x80' %>
-<%= @no3.name %><%= image_tag "class/class_#{@no3.class_id}.png", :size=> '20x20' %>HP:<span id="hp3"><%= @no3.Hp %></span>/<%= @no3.Hp %>
-<meter class="servanthpbar3" max="<%=@no3.Hp%>" low="<%=@no3.Hp*0.5%>" high="<%=@no3.Hp%>" value="<%=@no3.Hp%>" style="width: 200px;"></meter>
-ATK:<%= @no3.Atk %>
-NP:<span id="np3">0</span>/100
-<meter class="servantnpbar3" max="100" value="0" style="width: 150px;"></meter>
-<br>
-<% sskill = Skill.where(servant_id: @no3.servant_id) %>
-<% sskill.each do |servantskill| %>
-  <%= servantskill.name %>
-  <%= servantskill.explain%>
-<% end %><br>
-
 
 <% command = servant_command(@no1,@no2,@no3) %>
 <% if command[0].slice(-1) == "B" then
@@ -507,11 +463,9 @@ NP:<span id="np3">0</span>/100
      ccolor8 = "#0000FF"
    end
 %>
-
-
-<% enemyname1 = "黎明の神腕"%>
-<% enemyname2 = "黎明の神"%>
-<% enemyname3 = "黎明の腕"%>
+<% enemyname1 = "心を失ったもの"%>
+<% enemyname2 = "心を失ったもの"%>
+<% enemyname3 = "心を失ったもの"%>
 <% enemyatk1 = 1000 %>
 <% enemyatk2 = 1200 %>
 <% enemyatk3 = 800 %>
@@ -527,36 +481,163 @@ NP:<span id="np3">0</span>/100
 <% enemyhit1 = 1 %>
 <% enemyhit2 = 1 %>
 <% enemyhit3 = 1 %>
+<% enemyimg1 = "enemy1" %>
+<% enemyimg2 = "enemy1" %>
+<% enemyimg3 = "enemy1" %>
+<% enemygage1 = 3 %>
+<% enemygage2 = 4 %>
+<% enemygage3 = 5 %>
+
+<div id="id1" data-turn="1" data-hp1="0" data-hp2="0" data-hp3="0" data-np1="100" data-np2="0" data-np3="0" data-command=[] data-nextcommand=[] data-enemyhp1=0 data-enemyhp2=0 data-enemyhp3=0></div>
+<div id="id2" data-star1=0 data-star2=0 data-star3=0 data-star4=0 data-star5=0 data-select0=0 data-select1=0 data-select2=0 data-select3=0 data-select4=0 data-select5=0 data-select6=0 data-select7=0 ></div>
+<div id="id3" data-skill1e=[] data-skill1t=[] data-skill1c=[] data-skill1m=[] data-skill2e=[] data-skill2t=[] data-skill2c=[] data-skill2m=[] data-skill3e=[] data-skill3t=[] data-skill3c=[] data-skill3m=[]></div>
+
+Turn<span id="turn">1</span><br>
 
 
-<%=enemyname1%><%= image_tag "class/class_#{enemyclass1}.png", :size=> '20x20' %>
+<div id="enemy">
+<%=enemyname1%><%= image_tag "class/class_#{enemyclass1}.png", :size=> '20x20' %><br>
 HP:<span id="enemyhp1"><%=enemyhp1%></span>/<%=enemyhp1%><br>
-<meter class="enemyhpbar1" max="<%=enemyhp1%>" low="<%=enemyhp1*0.5%>" high="<%=enemyhp1%>" value="<%=enemyhp1%>" style="width: 200px;"></meter>
+<meter class="enemyhpbar1" max="<%=enemyhp1%>" low="<%=enemyhp1*0.5%>" high="<%=enemyhp1%>" value="<%=enemyhp1%>" style="width: 150px;"></meter>
 <br>
-<%=enemyname2%><%= image_tag "class/class_#{enemyclass2}.png", :size=> '20x20' %>
+<%=enemyname2%><%= image_tag "class/class_#{enemyclass2}.png", :size=> '20x20' %><br>
 HP:<span id="enemyhp2"><%=enemyhp2%></span>/<%=enemyhp2%><br>
-<meter class="enemyhpbar2" max="<%=enemyhp2%>" low="<%=enemyhp2*0.5%>" high="<%=enemyhp2%>" value="<%=enemyhp2%>" style="width: 200px;"></meter>
+<meter class="enemyhpbar2" max="<%=enemyhp2%>" low="<%=enemyhp2*0.5%>" high="<%=enemyhp2%>" value="<%=enemyhp2%>" style="width: 150px;"></meter>
 <br>
-<%=enemyname3%><%= image_tag "class/class_#{enemyclass3}.png", :size=> '20x20' %>
+<%=enemyname3%><%= image_tag "class/class_#{enemyclass3}.png", :size=> '20x20' %><br>
 HP:<span id="enemyhp3"><%=enemyhp3%></span>/<%=enemyhp3%><br>
-<meter class="enemyhpbar3" max="<%=enemyhp3%>" low="<%=enemyhp3*0.5%>" high="<%=enemyhp3%>" value="<%=enemyhp3%>" style="width: 200px;"></meter>
+<meter class="enemyhpbar3" max="<%=enemyhp3%>" low="<%=enemyhp3*0.5%>" high="<%=enemyhp3%>" value="<%=enemyhp3%>" style="width: 150px;"></meter>
+</div>
 
-<br>
-<span id="star">合計獲得スター:0/0%/0%/0%/0%/0%</span>
-<span id="cri1"></span><span id="cri2"></span><span id="cri3"></span>
 
-<div id="target1" style="display:none">ターゲット1</div>
-<div id="target2" style="display:none">ターゲット2</div>
+
+
+
+<div id="tips">攻撃する敵を指定し、コマンドカードを選択してください<br>コマンドカード送信ボタンを押すと、戦闘が開始されます<br></div>
+
+
+<div id="action">
+  <br><br><br>
+  <div id="action1" style="display:none"></div>
+  <div id="action2" style="display:none"></div>
+  <div id="action3" style="display:none"></div>
+</div>
+
+
+
+
+
 <%= form_tag(url_for(:action => 'command'), :remote => true, :id => "form1") do %>
+
+
+<div id="enemyselect">
+  <span class="ene">
   <label>
-  <%= check_box_tag "enemy" , "1", false, {:class => "e1"} %><span id="e1"><%=enemyname1%><%= image_tag "class/class_#{enemyclass1}.png", :size=> '20x20' %>最大HP:<%=enemyhp1%></span><br>
+  <%= check_box_tag "enemy" , "1", false, {:class => "e1"} %><span id="e1"><%=enemyname1%><%= image_tag "class/class_#{enemyclass1}.png", :size=> '20x20' %></span><br>
+  HP:<span id="enemyhp1"><%=enemyhp1%></span>/<%=enemyhp1%><br>
+  <meter class="enemyhpbar1" max="<%=enemyhp1%>" low="<%=enemyhp1*0.5%>" high="<%=enemyhp1%>" value="<%=enemyhp1%>" style="width: 150px;"></meter><br>
+  <%= image_tag "enemy/#{enemyimg1}.png", :size=> '114x130'%>
   </label>
+  <div id="announce11" style="display:none"></div>
+  <div id="announce12" style="display:none"></div>
+  <div id="announce13" style="display:none"></div>
+</span>
+
+<span class="ene">
   <label>
-  <%= check_box_tag "enemy" , "2", false, {:class => "e2"} %><span id="e2"><%=enemyname2%><%= image_tag "class/class_#{enemyclass2}.png", :size=> '20x20' %>最大HP:<%=enemyhp2%></span><br>
+  <%= check_box_tag "enemy" , "2", false, {:class => "e2"} %><span id="e2"><%=enemyname2%><%= image_tag "class/class_#{enemyclass2}.png", :size=> '20x20' %></span><br>
+  HP:<span id="enemyhp2"><%=enemyhp2%></span>/<%=enemyhp2%><br>
+  <meter class="enemyhpbar2" max="<%=enemyhp2%>" low="<%=enemyhp2*0.5%>" high="<%=enemyhp2%>" value="<%=enemyhp2%>" style="width: 150px;"></meter><br>
+  <%= image_tag "enemy/#{enemyimg2}.png", :size=> '114x130'%>
   </label>
+  <div id="announce21" style="display:none"></div>
+  <div id="announce22" style="display:none"></div>
+  <div id="announce23" style="display:none"></div>
+</span>
+
+<span class="ene">
   <label>
-  <%= check_box_tag "enemy" , "3", false, {:class => "e3"} %><span id="e3"><%=enemyname3%><%= image_tag "class/class_#{enemyclass3}.png", :size=> '20x20' %>最大HP:<%=enemyhp3%></span><br>
+  <%= check_box_tag "enemy" , "3", false, {:class => "e3"} %><span id="e3"><%=enemyname3%><%= image_tag "class/class_#{enemyclass3}.png", :size=> '20x20' %></span><br>
+  HP:<span id="enemyhp3"><%=enemyhp3%></span>/<%=enemyhp3%><br>
+  <meter class="enemyhpbar3" max="<%=enemyhp3%>" low="<%=enemyhp3*0.5%>" high="<%=enemyhp3%>" value="<%=enemyhp3%>" style="width: 150px;"></meter><br>
+  <%= image_tag "enemy/#{enemyimg3}.png", :size=> '114x130'%>
   </label>
+  <div id="announce31" style="display:none"></div>
+  <div id="announce32" style="display:none"></div>
+  <div id="announce33" style="display:none"></div>
+</span>
+</div>
+
+
+<div id="command">
+
+<span class="command">
+  <label>
+  <%= check_box_tag "card" , "#{command[0]}", false, {:class => "c0"} %>
+  <span id="c0" style="position:relative;">
+    <%= image_tag "servants/#{command[0].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor1};position:relative;z-index:3"%>
+    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c01',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c02',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c03',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+  </span>
+</label> <br>
+<span id="star1">0%</span>
+</span>
+
+<span class="command">
+  <label>
+  <%= check_box_tag "card" , "#{command[1]}", false, {:class => "c1"} %>
+  <span id="c1" style="position:relative;">
+    <%= image_tag "servants/#{command[1].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor2};position:relative;z-index:3"%>
+    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c11',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c12',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c13',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+  </span>
+  </label><br>
+  <span id="star2">0%</span>
+  </span>
+
+<span class="command">
+  <label>
+  <%= check_box_tag "card" , "#{command[2]}", false, {:class => "c2"} %>
+  <span id="c2" style="position:relative;">
+    <%= image_tag "servants/#{command[2].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor3};position:relative;z-index:3"%>
+    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c21',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c22',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c23',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+  </span>
+  </label><br>
+  <span id="star3">0%</span>
+  </span>
+
+<span class="command">
+  <label>
+  <%= check_box_tag "card" , "#{command[3]}", false, {:class => "c3"} %>
+  <span id="c3" style="position:relative;">
+    <%= image_tag "servants/#{command[3].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor4};position:relative;z-index:3"%>
+    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c31',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c32',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c33',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+  </span>
+  </label><br>
+  <span id="star4">0%</span>
+  </span>
+
+<span class="command">
+  <label>
+  <%= check_box_tag "card" , "#{command[4]}", false, {:class => "c4"} %>
+  <span id="c4" style="position:relative;">
+    <%= image_tag "servants/#{command[4].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor5};position:relative;z-index:3"%>
+    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c41',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c42',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c43',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
+  </span>
+</label><br>
+<span id="star5">0%</span>
+</span>
+<br>
+  <span id="cri1"></span><span id="cri2"></span><span id="cri3"></span>
+
 
   <label>
   <%= check_box_tag "card" , "noble1#{np1.command}", false, {:class => "c5"} %>
@@ -585,53 +666,11 @@ HP:<span id="enemyhp3"><%=enemyhp3%></span>/<%=enemyhp3%><br>
     <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c73',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
   </span>
   </label>
-  <br>
-  <label>
-  <%= check_box_tag "card" , "#{command[0]}", false, {:class => "c0"} %>
-  <span id="c0" style="position:relative;">
-    <%= image_tag "servants/#{command[0].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor1};position:relative;z-index:3"%>
-    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c01',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c02',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c03',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-  </span>
-  </label>
 
-  <label>
-  <%= check_box_tag "card" , "#{command[1]}", false, {:class => "c1"} %>
-  <span id="c1" style="position:relative;">
-    <%= image_tag "servants/#{command[1].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor2};position:relative;z-index:3"%>
-    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c11',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c12',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c13',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-  </span>
-  </label>
-  <label>
-  <%= check_box_tag "card" , "#{command[2]}", false, {:class => "c2"} %>
-  <span id="c2" style="position:relative;">
-    <%= image_tag "servants/#{command[2].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor3};position:relative;z-index:3"%>
-    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c21',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c22',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c23',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-  </span>
-  </label>
-  <label>
-  <%= check_box_tag "card" , "#{command[3]}", false, {:class => "c3"} %>
-  <span id="c3" style="position:relative;">
-    <%= image_tag "servants/#{command[3].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor4};position:relative;z-index:3"%>
-    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c31',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c32',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c33',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-  </span>
-  </label>
-  <label>
-  <%= check_box_tag "card" , "#{command[4]}", false, {:class => "c4"} %>
-  <span id="c4" style="position:relative;">
-    <%= image_tag "servants/#{command[4].slice(0..-2)}.png", :size=> '80x80' ,:style => "border:solid 5px #{ccolor5};position:relative;z-index:3"%>
-    <%= image_tag "num/1.png", :size=> '40x40' ,:class => 'c41',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/2.png", :size=> '40x40' ,:class => 'c42',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-    <%= image_tag "num/3.png", :size=> '40x40' ,:class => 'c43',:style => "position:absolute;right:0;bottom:0;z-index:1"%>
-  </span>
-  </label>
+  <br>
+</div><br>
+
+
 
   <%= hidden_field_tag :command, command %>
   <%= hidden_field_tag :no1, "#{@no1.servant_id}" %>
@@ -658,6 +697,9 @@ HP:<span id="enemyhp3"><%=enemyhp3%></span>/<%=enemyhp3%><br>
   <%= hidden_field_tag :enemyhit1, enemyhit1 %>
   <%= hidden_field_tag :enemyhit2, enemyhit2 %>
   <%= hidden_field_tag :enemyhit3, enemyhit3 %>
+  <%= hidden_field_tag :enemygage1, enemygage1 %>
+  <%= hidden_field_tag :enemygage2, enemygage2 %>
+  <%= hidden_field_tag :enemygage3, enemygage3 %>
   <%= hidden_field_tag :enemyhp1, enemyhp1 %>
   <%= hidden_field_tag :enemyhp2, enemyhp2 %>
   <%= hidden_field_tag :enemyhp3, enemyhp3 %>
@@ -676,8 +718,74 @@ HP:<span id="enemyhp3"><%=enemyhp3%></span>/<%=enemyhp3%><br>
   <%= hidden_field_tag :hit1, hit1 %>
   <%= hidden_field_tag :hit2, hit2 %>
   <%= hidden_field_tag :hit3, hit3 %>
-  <%= submit_tag "コマンドカード送信" , disabled: true, id: "submit_button" %>
+  <%= submit_tag "コマンドカード送信" , disabled: true, id: "submit" %>
 <% end %>
 
-<div id="tips">コマンドカードを選択してください<br></div>
+
+<div id="dialog">
+    <button id="servant_1"><%= @no1.name %></button>
+    <button id="servant_2"><%= @no2.name %></button>
+    <button id="servant_3"><%= @no3.name %></button>
+</div>
+
+
+
+<div id="servant">
+  <span class="chara">
+  <%= form_tag(url_for(:action => 'skill'), :remote => true, :class => "skillform") do %>
+    <%= hidden_field_tag :skill, "#{@no1.servant_id}1" %>
+    <%= hidden_field_tag :no, 1%>
+    <%= image_submit_tag("skill_icon/1.png", :width => "40", :height => "40", :class=> 'skill11') %>
+    <span id="skill11"><%= Skill.where(servant_id: @no1.servant_id).first.ct-2 %></span>
+  <% end %>
+
+  <%= form_tag(url_for(:action => 'skill'), :remote => true, :class => "skillform") do %>
+    <%= hidden_field_tag :skill, "#{@no1.servant_id}2" %>
+    <%= hidden_field_tag :no, 1%>
+    <%= image_submit_tag("skill_icon/1.png", :width => "40", :height => "40", :class=> 'skill12') %>
+    <span id="skill12"><%= Skill.where(servant_id: @no1.servant_id).second.ct-2 %></span>
+  <% end %>
+
+  <%= form_tag(url_for(:action => 'skill'), :remote => true, :class => "skillform") do %>
+    <%= hidden_field_tag :skill, "#{@no1.servant_id}3" %>
+    <%= hidden_field_tag :no, 1%>
+    <%= image_submit_tag("skill_icon/1.png", :width => "40", :height => "40", :class=> 'skill12') %>
+    <span id="skill13"><%= Skill.where(servant_id: @no1.servant_id).third.ct-2 %></span>
+  <% end %>
+
+  <%= image_tag "servants/#{@no1.servant_id}.png", :size=> '120x120' %><br>
+<%= @no1.name %><br><%= image_tag "class/class_#{@no1.class_id}.png", :size=> '20x20' %>HP:<span id="hp1"><%= @no1.Hp %></span>/<span id="maxhp1"><%= @no1.Hp %></span><br>
+<meter class="servanthpbar1" max="<%=@no1.Hp%>" low="<%=@no1.Hp*0.5%>" high="<%=@no1.Hp%>" value="<%=@no1.Hp%>" style="width: 150px;"></meter><br>
+ ATK:<%= @no1.Atk %>
+ NP:<span id="np1">0</span>/100<br>
+ <meter class="servantnpbar1" max="100" value="0" style="width: 150px;"></meter>
+ <br>
+</span>
+
+
+
+
+
+
+
+
+<span class="chara">
+<%= image_tag "servants/#{@no2.servant_id}.png", :size=> '120x120' %><br>
+<%= @no2.name %><br><%= image_tag "class/class_#{@no2.class_id}.png", :size=> '20x20' %>HP:<span id="hp2"><%= @no2.Hp %></span>/<span id="maxhp2"><%= @no2.Hp %></span><br>
+<meter class="servanthpbar2" max="<%=@no2.Hp%>" low="<%=@no2.Hp*0.5%>" high="<%=@no2.Hp%>" value="<%=@no2.Hp%>" style="width: 150px;"></meter><br>
+ATK:<%= @no2.Atk %>
+NP:<span id="np2">0</span>/100<br>
+<meter class="servantnpbar2" max="100" value="0" style="width: 150px;"></meter>
+<br>
+</span>
+
+<span class="chara">
+<%= image_tag "servants/#{@no3.servant_id}.png", :size=> '120x120' %><br>
+<%= @no3.name %><br><%= image_tag "class/class_#{@no3.class_id}.png", :size=> '20x20' %>HP:<span id="hp3"><%= @no3.Hp %></span>/<span id="maxhp3"><%= @no3.Hp %></span><br>
+<meter class="servanthpbar3" max="<%=@no3.Hp%>" low="<%=@no3.Hp*0.5%>" high="<%=@no3.Hp%>" value="<%=@no3.Hp%>" style="width: 150px;"></meter><br>
+ATK:<%= @no3.Atk %>
+NP:<span id="np3">0</span>/100<br>
+<meter class="servantnpbar3" max="100" value="0" style="width: 150px;"></meter>
+</span>
+</div>
 <br>

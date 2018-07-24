@@ -12,6 +12,13 @@ require "csv"
   end
 end
 
+require "csv"
+  if File.exist?('db/sskill.csv') == true
+    CSV.foreach('db/sskill.csv').each do |row|
+    Sskill.create(skill_id: row[0], target: row[1], effect: row[2], turn: row[3], count: row[4], mag: row[5])
+  end
+end
+
 =begin
 csv_text = File.read('db/servant.csv', encoding: 'utf-8')
 csv_text = csv_text.gsub /^$\n/, ''

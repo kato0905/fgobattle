@@ -14,4 +14,13 @@ class BattleController < ApplicationController
     format.js
     end
   end
+
+  def skill
+    @sskill = Sskill.where(skill_id: params[:skill])
+    respond_to do |format|
+    format.html
+    format.js
+    end
+  end
+
 end

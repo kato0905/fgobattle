@@ -1,0 +1,2 @@
+class Sskill < ApplicationRecord
+end

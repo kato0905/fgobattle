@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "battle/home"
   get "battle/command"
   post "battle/command"
+  get "battle/skill"
+  post "battle/skill"
   #post "servants" => "battle#home"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705130637) do
+ActiveRecord::Schema.define(version: 20180720033231) do
 
   create_table "attris", force: :cascade do |t|
     t.integer "attri_id"
@@ -115,6 +115,17 @@ ActiveRecord::Schema.define(version: 20180705130637) do
     t.string "d8"
     t.string "d9"
     t.string "d10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sskills", force: :cascade do |t|
+    t.integer "skill_id"
+    t.integer "target"
+    t.string "effect"
+    t.integer "turn"
+    t.integer "count"
+    t.integer "mag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

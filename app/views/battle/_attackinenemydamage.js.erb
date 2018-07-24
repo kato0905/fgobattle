@@ -12,7 +12,14 @@ var commandn;
 var extraattack = 0;
 var extradamage = 0;
 var currentenemy;
+var currenthit;
 var coco;
+var ened1;//1つめのコマンドカードで殴られた敵
+var ened2;//2つめのコマンドカードで殴られた敵
+var ened3;//3つめのコマンドカードで殴られた敵
+var hitd1;
+var hitd2;
+var hitd3;
 
 
 //ターゲットとされている敵のHPへのリンク
@@ -70,7 +77,7 @@ if(attack == 1){
 damage = eval("commandatk"+attack)*afterattack*commandrate*attrirate*classrate*myrate;//ダメージ
 if(commandtype == 4){//宝具の場合
   $('#id1').data('np'+commandn,0);//累計NP更新
-  $('#np'+commandn).html(0);//xx/100の部分を更新
+  $("#servant").find('#np'+commandn).html(0);//xx/100の部分を更新
   $('.servantnpbar'+commandn).val(0);//NPバーを更新
   damage = damage*parseFloat(eval("noblerate"+text[commandposition-1].slice(-2,-1))*0.01);
 }
@@ -83,11 +90,12 @@ starplus = starrate+eval("star"+commandn);//スター発生率
 if(realcritical[attack-1] == 1){//クリティカルなら
   damage = damage*2
 }
+currenthit = eval("hit"+commandn+"["+commandtype+"]");
 
 if(parseInt(eval("enemyhp"+enemytext))-parseInt(j)-parseInt(damage) <= 0){//死亡したら
 
   $('#id1').data("enemyhp"+enemytext,eval("enemyhp"+enemytext));//最大HPと同じダメージが入ったと更新
-  $('#enemyhp'+enemytext).html(0)//表示HPを0に
+  $("#enemyselect").find('#enemyhp'+enemytext).html(0)//表示HPを0に
   $('.enemyhpbar'+enemytext).val(0);//HPバーを更新
 
   $('.e'+enemytext).attr('name','dead');
@@ -133,7 +141,7 @@ if(parseInt(eval("enemyhp"+enemytext))-parseInt(j)-parseInt(damage) <= 0){//死�
 
 }else {//死亡しなかったら
   $('#id1').data('enemyhp'+enemytext,parseInt(j)+parseInt(damage));//累計ダメージ更新
-  $('#enemyhp'+enemytext).html(parseInt(eval("enemyhp"+enemytext))-j-damage);//
+  $("#enemyselect").find('#enemyhp'+enemytext).html(parseInt(eval("enemyhp"+enemytext)-j-damage));//
   $('.enemyhpbar'+enemytext).val(parseInt(eval("enemyhp"+enemytext))-j-damage);//HPバーを更新
 }
 
@@ -145,7 +153,7 @@ if(realcritical[attack-1] == 1){
 //NP獲得処理
 var tmpnp = $('#id1').data('np'+commandn);//今まで獲得していたNP
 $('#id1').data('np'+commandn,parseFloat(npplus)+parseFloat(tmpnp));//累計NP更新
-$('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
+$("#servant").find('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
 $('.servantnpbar'+commandn).val(parseFloat(tmpnp)+parseFloat(npplus));//NPバーを更新
 //スター獲得処理
 //iの数だけ発生率が上がる
@@ -241,11 +249,24 @@ if(overkill == 1 && eval("hit"+commandn+"["+commandtype+"]")-i > 0){//iがHit数
 overkill = 0;
 if(attack == 1){
   damagetoenemy1 = damage;
+  ened1 = currentenemy;
+  hitd1 = currenthit;
 }else if(attack == 2){
   damagetoenemy2 = damage;
+  ened2 = currentenemy;
+  hitd2 = currenthit;
 }else{
   damagetoenemy3 = damage;
+  ened3 = currentenemy;
+  hitd3 = currenthit;
 }
+
+
+
+
+
+
+
 
 
 
@@ -288,7 +309,7 @@ if(realcritical[attack-1] == 1){//クリティカルなら
 if(parseInt(eval("enemyhp"+currentenemy))-parseInt(j)-parseInt(damage) <= 0){//死亡したら
 
   $('#id1').data("enemyhp"+currentenemy,eval("enemyhp"+currentenemy));//最大HPと同じダメージが入ったと更新
-  $('#enemyhp'+currentenemy).html(0)//表示HPを0に
+  $("#enemyselect").find('#enemyhp'+currentenemy).html(0)//表示HPを0に
   $('.enemyhpbar'+currentenemy).val(0);//HPバーを更新
 
   $('.e'+currentenemy).attr('name','dead');
@@ -322,14 +343,14 @@ if(parseInt(eval("enemyhp"+currentenemy))-parseInt(j)-parseInt(damage) <= 0){//�
 
 }else {//死亡しなかったら
   $('#id1').data('enemyhp'+currentenemy,parseInt(j)+parseInt(damage));//累計ダメージ更新
-  $('#enemyhp'+currentenemy).html(parseInt(eval("enemyhp"+currentenemy))-j-damage);//
+  $("#enemyselect").find('#enemyhp'+currentenemy).html(parseInt(eval("enemyhp"+currentenemy)-j-damage));//
   $('.enemyhpbar'+currentenemy).val(parseInt(eval("enemyhp"+currentenemy))-j-damage);//HPバーを更新
 }
 
 //NP獲得処理
 var tmpnp = $('#id1').data('np'+commandn);//今まで獲得していたNP
 $('#id1').data('np'+commandn,parseFloat(npplus)+parseFloat(tmpnp));//累計NP更新
-$('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
+$("#servant").find('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
 $('.servantnpbar'+commandn).val(parseFloat(tmpnp)+parseFloat(npplus));//NPバーを更新
 //スター獲得処理
 //iの数だけ発生率が上がる
@@ -468,7 +489,7 @@ damage = damage*2
 if(parseInt(eval("enemyhp"+currentenemy))-parseInt(j)-parseInt(damage) <= 0){//死亡したら
 
 $('#id1').data("enemyhp"+currentenemy,eval("enemyhp"+currentenemy));//最大HPと同じダメージが入ったと更新
-$('#enemyhp'+currentenemy).html(0)//表示HPを0に
+$("#enemyselect").find('#enemyhp'+currentenemy).html(0)//表示HPを0に
 $('.enemyhpbar'+currentenemy).val(0);//HPバーを更新
 
 $('.e'+currentenemy).attr('name','dead');
@@ -502,14 +523,14 @@ if(text[attack-1].slice(-1) == "A"){//Artsで殺した場合
 
 }else {//死亡しなかったら
 $('#id1').data('enemyhp'+currentenemy,parseInt(j)+parseInt(damage));//累計ダメージ更新
-$('#enemyhp'+currentenemy).html(parseInt(eval("enemyhp"+currentenemy))-j-damage);//
+$("#enemyselect").find('#enemyhp'+currentenemy).html(parseInt(eval("enemyhp"+currentenemy)-j-damage));//
 $('.enemyhpbar'+currentenemy).val(parseInt(eval("enemyhp"+currentenemy))-j-damage);//HPバーを更新
 }
 
 //NP獲得処理
 var tmpnp = $('#id1').data('np'+commandn);//今まで獲得していたNP
 $('#id1').data('np'+commandn,parseFloat(npplus)+parseFloat(tmpnp));//累計NP更新
-$('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
+$("#servant").find('#np'+commandn).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
 $('.servantnpbar'+commandn).val(parseFloat(tmpnp)+parseFloat(npplus));//NPバーを更新
 //スター獲得処理
 //iの数だけ発生率が上がる
@@ -644,7 +665,7 @@ if(commandno1 == commandno2 && commandno2 == commandno3){
   if(parseInt(eval("enemyhp"+enemytext))-parseInt(j)-parseInt(damage) <= 0){//死亡したら
 
     $('#id1').data("enemyhp"+enemytext,eval("enemyhp"+enemytext));//最大HPと同じダメージが入ったと更新
-    $('#enemyhp'+enemytext).html(0)//表示HPを0に
+    $("#enemyselect").find('#enemyhp'+enemytext).html(0)//表示HPを0に
     $('.enemyhpbar'+enemytext).val(0);//HPバーを更新
 
     $('.e'+enemytext).attr('name','dead');
@@ -661,14 +682,14 @@ if(commandno1 == commandno2 && commandno2 == commandno3){
     npplus = npplus+npplus*0.5*(eval("hit"+commandno1+"[3]")-i)/eval("hit"+commandno1+"[3]");
   }else {//死亡しなかったら
     $('#id1').data('enemyhp'+enemytext,eval("enemydamage"+enemytext)+damage);//累計ダメージ更新
-    $('#enemyhp'+enemytext).html(parseInt(eval("enemyhp"+enemytext))-eval("enemydamage"+enemytext)-damage);//
+    $("#enemyselect").find('#enemyhp'+enemytext).html(parseInt(eval("enemyhp"+enemytext)-eval("enemydamage"+enemytext)-damage));//
     $('.enemyhpbar'+enemytext).val(parseInt(eval("enemyhp"+enemytext))-eval("enemydamage"+enemytext)-damage);//HPバーを更新
   }
 
   //NP獲得処理
   var tmpnp = $('#id1').data('np'+commandno1);//今まで獲得していたNP
   $('#id1').data('np'+commandno1,parseFloat(npplus)+parseFloat(tmpnp));//累計NP更新
-  $('#np'+commandno1).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
+  $("#servant").find('#np'+commandno1).html(parseFloat(tmpnp)+parseFloat(npplus));//xx/100の部分を更新
   $('.servantnpbar'+commandno1).val(parseFloat(tmpnp)+parseFloat(npplus));//NPバーを更新
   //スター獲得処理
   //iの数だけ発生率が上がる
@@ -776,18 +797,18 @@ if(text[0].slice(-1) == "Q" && text[1].slice(-1) == "Q" && text[2].slice(-1) == 
 if(text[0].slice(-1) == "A" && text[1].slice(-1) == "A" && text[2].slice(-1) == "A"){
   var tmpnp = $('#id1').data('np'+commandno1);
   $('#id1').data('np'+commandno1,20+parseFloat(tmpnp));//累計NP更新
-  $('#np'+commandno1).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
+  $("#servant").find('#np'+commandno1).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
   $('.servantnpbar'+commandno1).val(parseFloat(tmpnp)+20);//NPバーを更新
   if(commandno2 != commandno1){
     tmpnp = $('#id1').data('np'+commandno2);
     $('#id1').data('np'+commandno2,20+parseFloat(tmpnp));//累計NP更新
-    $('#np'+commandno2).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
+    $("#servant").find('#np'+commandno2).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
     $('.servantnpbar'+commandno2).val(parseFloat(tmpnp)+20);//NPバーを更新
   }
   if(commandno3 != commandno2 && commandno3 != commandno1){
     tmpnp = $('#id1').data('np'+commandno3);
     $('#id1').data('np'+commandno3,20+parseFloat(tmpnp));//累計NP更新
-    $('#np'+commandno3).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
+    $("#servant").find('#np'+commandno3).html(parseFloat(tmpnp)+20);//xx/100の部分を更新
     $('.servantnpbar'+commandno3).val(parseFloat(tmpnp)+20);//NPバーを更新
   }
 }
@@ -798,14 +819,4 @@ if(text[0].slice(-1) == "A" && text[1].slice(-1) == "A" && text[2].slice(-1) == 
 
 if(parseInt("<%=params[:enemyhp1]%>") <= $('#id1').data('enemyhp1') && parseInt("<%=params[:enemyhp2]%>") <= $('#id1').data('enemyhp2') && parseInt("<%=params[:enemyhp3]%>") <= $('#id1').data('enemyhp3')) {
   alert("Quest Clear")
-}
-
-if(extraattack != 0){
-  var getData = String($("#tips").html());
-  var addData = "Turn"+turn+":"+commandname1+"の<font color='"+commandcolor1+"'>"+parseInt(damagetoenemy1)+"</font>ダメージ! "+commandname2+"の<font color='"+commandcolor2+"'>"+parseInt(damagetoenemy2)+"</font>ダメージ! "+commandname3+"の<font color='"+commandcolor3+"'>"+parseInt(damagetoenemy3)+"</font>ダメージ! EXTRAATTACKで"+parseInt(extradamage)+"ダメージ！<br>"
-  $("#tips").html(getData+addData);
-}else{
-  var getData = String($("#tips").html());
-  var addData = "Turn"+turn+":"+commandname1+"の<font color='"+commandcolor1+"'>"+parseInt(damagetoenemy1)+"</font>ダメージ! "+commandname2+"の<font color='"+commandcolor2+"'>"+parseInt(damagetoenemy2)+"</font>ダメージ! "+commandname3+"の<font color='"+commandcolor3+"'>"+parseInt(damagetoenemy3)+"</font>ダメージ!<br>"
-  $("#tips").html(getData+addData);
 }

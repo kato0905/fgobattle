@@ -84,6 +84,8 @@ $(document).ready(function(){
   });
 });
 
+
+//battle_home
 $(document).ready(function(){
   if($("#id1").data("np1") <100){
     $(".c5").attr("disabled",true)
@@ -168,6 +170,8 @@ $(document).ready(function(){
           $("input[type=submit]").attr("disabled",true);
       }
   });
+
+  
   /*  var position = 50;
     var number = 0;
     var memo = 0;
